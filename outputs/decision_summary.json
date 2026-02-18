@@ -45,10 +45,10 @@
     "neg_30d": 5,
     "shock_7d": -3,
     "shock_30d": -12,
-    "pos_hits_7d": 10,
-    "neg_hits_7d": 5,
-    "proxy_score_7d": 59,
-    "proxy_score_30d": 58
+    "pos_hits_7d": 11,
+    "neg_hits_7d": 4,
+    "proxy_score_7d": 62,
+    "proxy_score_30d": 61
   },
   "universe": [
     "UBER",

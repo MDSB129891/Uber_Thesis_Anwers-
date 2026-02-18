@@ -1,0 +1,55 @@
+{
+  "name": "UBER: Cash generation + reasonable valuation outweighs headline risk",
+  "ticker": "UBER",
+  "description": "Uber can keep growing while converting revenue into free cash flow, and the stock is not overpriced versus that cash. Risks (insurance/regulatory/labor) are real but not escalating.",
+  "claims": [
+    {
+      "id": "rev_growth",
+      "statement": "Revenue is still growing at a healthy pace",
+      "metric": "latest_revenue_yoy_pct",
+      "operator": ">=",
+      "threshold": 10,
+      "weight": 2
+    },
+    {
+      "id": "fcf_positive",
+      "statement": "Free cash flow is positive",
+      "metric": "latest_free_cash_flow",
+      "operator": ">",
+      "threshold": 0,
+      "weight": 3
+    },
+    {
+      "id": "fcf_margin",
+      "statement": "Free cash flow margin is solid",
+      "metric": "latest_fcf_margin_pct",
+      "operator": ">=",
+      "threshold": 10,
+      "weight": 2
+    },
+    {
+      "id": "news_shock_ok",
+      "statement": "Recent news shock is not severe (not a headline crisis)",
+      "metric": "news_shock_30d",
+      "operator": ">=",
+      "threshold": -15,
+      "weight": 1
+},
+    {
+      "id": "valuation_fcf_yield",
+      "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
+      "metric": "fcf_yield_pct",
+      "operator": ">=",
+      "threshold": 2.0,
+      "weight": 2
+    },
+    {
+      "id": "insurance_not_spiking",
+      "statement": "Insurance risk is not spiking recently",
+      "metric": "risk_insurance_neg_30d",
+      "operator": "<=",
+      "threshold": 3,
+      "weight": 1
+    }
+  ]
+}

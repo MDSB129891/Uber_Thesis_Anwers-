@@ -1,16 +1,102 @@
 {
-  "total_rows": 422,
-  "source_counts": {
-    "finnhub": 396,
-    "sec": 26
+  "ticker": "UBER",
+  "generated_utc": "2026-02-18T23:49:15.708975+00:00",
+  "confidence_score": 75,
+  "breakdown": {
+    "rows": 208,
+    "url_coverage": 1.0,
+    "top_source": "finnhub",
+    "top_source_share": 0.957,
+    "unique_domains": 2,
+    "sec_share": 0.043,
+    "whitelist_share": 0.043,
+    "recent_share_7d": 0.365,
+    "dup_ratio_titles": 0.0,
+    "notes": [
+      "Confidence is evidence-quality + cross-checkability (not stock performance).",
+      "Single-source dominance lowers confidence. SEC + reputable domains raise it."
+    ]
   },
-  "domain_counts_top10": {
-    "finnhub.io": 396,
-    "sec.gov": 26
-  },
-  "top_tier_rows": 26,
-  "top_tier_pct": 6.16,
-  "redirect_like_rows": 396,
-  "missing_url_rows": 0,
-  "duplicate_titles_est": 0
+  "must_click": [
+    {
+      "published_at": "2026-02-17T10:04:21+00:00",
+      "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
+      "source": "finnhub",
+      "risk_tag": "INSURANCE",
+      "impact_score": -3,
+      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7"
+    },
+    {
+      "published_at": "2026-02-09T17:03:00+00:00",
+      "title": "Bank of America resets Uber stock price after earnings",
+      "source": "finnhub",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3,
+      "url": "https://finnhub.io/api/news?id=61772357fffdc75b23e68cb9e8ec768f87efec9d34433df68f6bbb124968ce12"
+    },
+    {
+      "published_at": "2026-02-10T22:10:18+00:00",
+      "title": "Uber Liability Verdict Puts Safety Data And Investor Risks In Focus",
+      "source": "finnhub",
+      "risk_tag": "INSURANCE",
+      "impact_score": -2,
+      "url": "https://finnhub.io/api/news?id=f10e3a67099b57552a9d829bee868929c2cc772f1f637964f1cd149e473b8a20"
+    },
+    {
+      "published_at": "2026-02-10T00:28:00+00:00",
+      "title": "Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl \"Consumer Alert\" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",
+      "source": "finnhub",
+      "risk_tag": "SAFETY",
+      "impact_score": -2,
+      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b"
+    },
+    {
+      "published_at": "2026-02-09T05:06:13+00:00",
+      "title": "Uber Jury Verdict Raises Fresh Questions On Safety Risks And Valuation",
+      "source": "finnhub",
+      "risk_tag": "SAFETY",
+      "impact_score": -2,
+      "url": "https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838"
+    },
+    {
+      "published_at": "2026-02-18T19:20:00+00:00",
+      "title": "David Tepper\u2019s Appaloosa Trims Alibaba and Adds Micron, Alphabet in Stock Reshuffle",
+      "source": "finnhub",
+      "risk_tag": "OTHER",
+      "impact_score": 0,
+      "url": "https://finnhub.io/api/news?id=466b44aa26573227c5dd2b65cdede8385baca8446e5e8335b2da91cfe08cb3d1"
+    },
+    {
+      "published_at": "2026-02-18T19:08:03+00:00",
+      "title": "Uber offers incentives for EV chargers, Wendy's stock surges",
+      "source": "finnhub",
+      "risk_tag": "OTHER",
+      "impact_score": 0,
+      "url": "https://finnhub.io/api/news?id=8ccbcd773be9ce94b90f1df2a5c8b76d516bbd8b1d5a28c337fbc7c7b01cfffd"
+    },
+    {
+      "published_at": "2026-02-18T18:28:45+00:00",
+      "title": "Uber to Invest $100M in Autonomous Vehicle Charging Network",
+      "source": "finnhub",
+      "risk_tag": "OTHER",
+      "impact_score": 0,
+      "url": "https://finnhub.io/api/news?id=5bfba49d337267800a787eb955a182e34544dadc572208cd8823efc22b2d66a1"
+    },
+    {
+      "published_at": "2026-02-18T17:50:18+00:00",
+      "title": "Jim Cramer Discusses \u201cOver Trading\u201d In Uber (UBER) Stock",
+      "source": "finnhub",
+      "risk_tag": "OTHER",
+      "impact_score": 0,
+      "url": "https://finnhub.io/api/news?id=1593168d794381e0ec754a0cb36efdc1ab933442c39023b4537fb8cefc8ca052"
+    },
+    {
+      "published_at": "2026-02-18T17:13:00+00:00",
+      "title": "DoorDash Earnings Are Today. It\u2019s All About the Outlook.",
+      "source": "finnhub",
+      "risk_tag": "FINANCIAL",
+      "impact_score": 0,
+      "url": "https://finnhub.io/api/news?id=6f40675ef1ebdfd292c457736b6c46f0a30220010a2e0617ffb66156764e71b9"
+    }
+  ]
 }

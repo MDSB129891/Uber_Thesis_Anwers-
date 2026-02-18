@@ -1,0 +1,21 @@
+{
+  "ticker": "UBER",
+  "as_of": "2026-02-18",
+  "score": 83,
+  "rating": "BUY",
+  "lights": {
+    "cash_level": "GREEN",
+    "valuation": "YELLOW",
+    "growth": "YELLOW",
+    "quality": "YELLOW",
+    "balance_risk": "YELLOW"
+  },
+  "data_completeness_score": 100,
+  "confidence_score": 39,
+  "top_reasons": [],
+  "top_risks": [],
+  "red_flags": [
+    "[MED] Free cash flow is volatile",
+    "[MED] Repeated negative risk theme: TOTAL"
+  ]
+}
