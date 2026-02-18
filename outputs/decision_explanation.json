@@ -1,0 +1,71 @@
+{
+  "ticker": "UBER",
+  "as_of": "2026-02-18",
+  "score": 83,
+  "rating": "BUY",
+  "universe": [
+    "UBER",
+    "LYFT",
+    "DASH"
+  ],
+  "bucket_scores": {
+    "cash_level": 21,
+    "valuation": 15,
+    "growth": 16,
+    "quality": 15,
+    "balance_risk": 16
+  },
+  "peer_ranks": {
+    "fcf_yield_pct_rank": 66.66666666666666,
+    "revenue_ttm_yoy_pct_rank": 66.66666666666666,
+    "fcf_ttm_yoy_pct_rank": 66.66666666666666,
+    "fcf_margin_ttm_pct_rank": 100.0
+  },
+  "news_summary": {
+    "neg_7d": 1,
+    "neg_30d": 5,
+    "shock_7d": -3,
+    "tag_counts_30d": {
+      "INSURANCE": 2,
+      "SAFETY": 2,
+      "REGULATORY": 1
+    },
+    "top_negative_titles_7d": [
+      {
+        "published_at": "2026-02-17T10:04:21+00:00",
+        "risk_tag": "INSURANCE",
+        "impact_score": -3,
+        "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
+        "source": "finnhub",
+        "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7"
+      }
+    ]
+  },
+  "news_sentiment_proxy": {
+    "ticker": "UBER",
+    "articles_7d": 72,
+    "articles_30d": 208,
+    "neg_7d": 1,
+    "neg_30d": 5,
+    "shock_7d": -3,
+    "shock_30d": -12,
+    "pos_hits_7d": 10,
+    "neg_hits_7d": 5,
+    "proxy_score_7d": 59,
+    "proxy_score_30d": 58
+  },
+  "plain_english": {
+    "what_this_is": "Engine uses TTM fundamentals + peer comps + stable news risk (SEC filings + Finnhub headlines).",
+    "veracity_check": "Open outputs/news_evidence_UBER.html to click and verify every headline the score is reacting to.",
+    "why_proxy": "Finnhub /news-sentiment is often paywalled (403). Proxy uses headline keywords + impact scoring instead."
+  },
+  "outputs_written": [
+    "data/processed/news_unified.csv",
+    "data/processed/news_sentiment_proxy.csv",
+    "data/processed/news_risk_dashboard.csv",
+    "data/processed/news_evidence_UBER.csv",
+    "outputs/news_evidence_UBER.html",
+    "outputs/decision_summary.json",
+    "outputs/decision_explanation.json"
+  ]
+}
