@@ -1,0 +1,16 @@
+{
+  "total_rows": 422,
+  "source_counts": {
+    "finnhub": 396,
+    "sec": 26
+  },
+  "domain_counts_top10": {
+    "finnhub.io": 396,
+    "sec.gov": 26
+  },
+  "top_tier_rows": 26,
+  "top_tier_pct": 6.16,
+  "redirect_like_rows": 396,
+  "missing_url_rows": 0,
+  "duplicate_titles_est": 0
+}

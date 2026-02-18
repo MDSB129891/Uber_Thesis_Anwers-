@@ -43,7 +43,7 @@
   },
   "news_sentiment_proxy": {
     "ticker": "UBER",
-    "articles_7d": 72,
+    "articles_7d": 76,
     "articles_30d": 208,
     "neg_7d": 1,
     "neg_30d": 5,

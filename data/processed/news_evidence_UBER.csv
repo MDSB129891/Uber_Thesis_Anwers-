@@ -4,6 +4,10 @@ published_at,ticker,source,risk_tag,impact_score,title,url
 2026-02-10 22:10 UTC,UBER,finnhub,INSURANCE,-2,Uber Liability Verdict Puts Safety Data And Investor Risks In Focus,https://finnhub.io/api/news?id=f10e3a67099b57552a9d829bee868929c2cc772f1f637964f1cd149e473b8a20
 2026-02-10 00:28 UTC,UBER,finnhub,SAFETY,-2,"Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl ""Consumer Alert"" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b
 2026-02-09 05:06 UTC,UBER,finnhub,SAFETY,-2,Uber Jury Verdict Raises Fresh Questions On Safety Risks And Valuation,https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838
+2026-02-18 17:50 UTC,UBER,finnhub,OTHER,0,Jim Cramer Discusses “Over Trading” In Uber (UBER) Stock,https://finnhub.io/api/news?id=1593168d794381e0ec754a0cb36efdc1ab933442c39023b4537fb8cefc8ca052
+2026-02-18 17:13 UTC,UBER,finnhub,FINANCIAL,0,DoorDash Earnings Are Today. It’s All About the Outlook.,https://finnhub.io/api/news?id=6f40675ef1ebdfd292c457736b6c46f0a30220010a2e0617ffb66156764e71b9
+2026-02-18 16:38 UTC,UBER,finnhub,OTHER,0,Uber bets big on EV charging for both its drivers and future robotaxis,https://finnhub.io/api/news?id=3e8bdb13c1f3c6190a1017e343aadd8edeec172fa68744ff4caeb621a2ea0137
+2026-02-18 16:38 UTC,UBER,finnhub,OTHER,0,Uber to invest $100 million in autonomous vehicle charging hubs for robotaxis,https://finnhub.io/api/news?id=f01bb90b992bd85c2b48ec70d4b201bb3d3d7b69ed42314504bb7fbfd9dba1e1
 2026-02-18 12:08 UTC,UBER,finnhub,OTHER,0,Uber to invest over $100 million in autonomous vehicle charging amid robotaxi push,https://finnhub.io/api/news?id=e294da39d6e8bae5bb454ae8b076a264fa1fa3872f2c6f8067c3200404f258f4
 2026-02-18 11:48 UTC,UBER,finnhub,OTHER,0,From Rides To Robots: Uber's Path Through The AV And AI Era,https://finnhub.io/api/news?id=87844dd58650d9821b047bd9181f4a24f0d1ccf267bb16fae392916e6fd98ddb
 2026-02-18 10:27 UTC,UBER,finnhub,REGULATORY,0,'Uber to invest over $100 million in autonomous vehicle charging amid robotaxi push' - Reuters,https://finnhub.io/api/news?id=ed87ff791d364694af91cccf5fb5e3cde4f7f62d0e14fd11f5146fcd8a5aed7e
@@ -47,8 +51,8 @@ published_at,ticker,source,risk_tag,impact_score,title,url
 2026-02-13 10:07 UTC,UBER,finnhub,OTHER,0,DoorDash: Reiterating Buy At This Bargain Price,https://finnhub.io/api/news?id=bd8509549f87bb0117dbcbbe1dd89eb43f5c66ae53a8fa0e6bba9f06f90cf0e0
 2026-02-13 06:34 UTC,UBER,finnhub,OTHER,0,Baidu Embeds OpenClaw In Search App Ahead Of Lunar New Year,https://finnhub.io/api/news?id=3480ae3cf36da42232858a373beac514a426272e3558cef1322a8d271ce38023
 2026-02-13 00:00 UTC,UBER,sec,OTHER,0,UBER SEC filing: 13F-HR (2026-02-13),https://www.sec.gov/Archives/edgar/data/1543151/000155278126000060/xslForm13F_X02/primary_doc.xml
-2026-02-13 00:00 UTC,UBER,sec,OTHER,0,UBER SEC filing: S-3ASR (2026-02-13),https://www.sec.gov/Archives/edgar/data/1543151/000155278126000059/e26051_uber-s3asr.htm
 2026-02-13 00:00 UTC,UBER,sec,OTHER,0,UBER SEC filing: 10-K (2026-02-13),https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm
+2026-02-13 00:00 UTC,UBER,sec,OTHER,0,UBER SEC filing: S-3ASR (2026-02-13),https://www.sec.gov/Archives/edgar/data/1543151/000155278126000059/e26051_uber-s3asr.htm
 2026-02-12 20:10 UTC,UBER,finnhub,FINANCIAL,0,DoorDash set to report in-line Q4 earnings amid strong online and retail delivery trends,https://finnhub.io/api/news?id=4096bc099d1a2e3d355b246b7816a51243de1dd9570dc61cde29f994fd891620
 2026-02-12 15:00 UTC,UBER,finnhub,OTHER,0,Uber for Business and Mazda Team Up to Enhance Customer Experience at U.S. Dealerships,https://finnhub.io/api/news?id=fdac9bc687add9bf7065fbbc1c9a1615b20648bf1c6866d375271587b6812d97
 2026-02-12 13:35 UTC,UBER,finnhub,OTHER,0,10 Industrials Stocks Whale Activity In Today's Session,https://finnhub.io/api/news?id=aee8809c766bcdeba8af68eac8e590a481fc2e5a9fb6186cd6a5df8c065b480d
@@ -75,7 +79,3 @@ published_at,ticker,source,risk_tag,impact_score,title,url
 2026-02-11 15:25 UTC,UBER,finnhub,SAFETY,0,Lyft Stock Crashes on Earnings. This Analyst Sees Upside.,https://finnhub.io/api/news?id=25fc9753c707626936e285d7c650817cf93c4d0106cfac2da007ca37d7f179e6
 2026-02-11 14:50 UTC,UBER,finnhub,OTHER,0,Lyft: Value Or Trap? I'm Still Backing Value,https://finnhub.io/api/news?id=7972f290e921165773309844b62f467c5252d40a3c6489a8a5cb9b02d148ecd8
 2026-02-11 12:46 UTC,UBER,finnhub,OTHER,0,Uber & Baidu Expand Deal for Dubai AV Rides: Is the Space Heating Up?,https://finnhub.io/api/news?id=b7f35df8adb0f82ea45354d9c3acc5e47c149bb6f08a0f3d1bd9144e5c665d94
-2026-02-11 11:07 UTC,UBER,finnhub,FINANCIAL,0,Lyft CEO Risher says consumer is showing 'no softness' as stock slides 15% after earnings,https://finnhub.io/api/news?id=8070e72f0ec91a05f811b256f43e276444e0990ed425db1dcc63ded7e3855458
-2026-02-11 10:20 UTC,UBER,finnhub,FINANCIAL,0,Lyft’s stock tumbles as rider numbers and revenue suffer big misses,https://finnhub.io/api/news?id=9845537ed8cfdf64ee402a4eda68a9798a76d5297223f355a2cb0858b6b19830
-2026-02-11 08:55 UTC,UBER,finnhub,OTHER,0,"Oracle, Dow, Uber And A Financial Stock On CNBC's 'Final Trades'",https://finnhub.io/api/news?id=f07fc84f76dc8c5c3582efb594205eda3f16328a518ab947387e33cdbce0eed6
-2026-02-11 07:00 UTC,UBER,finnhub,OTHER,0,Uber Eats launches AI cart assistant for grocery delivery,https://finnhub.io/api/news?id=b82e71b1bcf0dbb4ba256eefb5f606b991edbc3ddd2f8ee431658982bb06e7ad
