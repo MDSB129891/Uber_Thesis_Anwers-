@@ -1,5 +1,5 @@
 # Full Investment Memo — GM
-*Generated: 2026-02-19 02:12 UTC*
+*Generated: 2026-02-19 04:07 UTC*
 
 ## Quick summary
 - Model rating: **AVOID** (52/100)

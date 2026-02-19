@@ -93,6 +93,8 @@ fi
 echo "DONE ✅ SNAP PACK"
 echo "- outputs/hybrid_signals_${TICKER}.json"
 echo "- outputs/ironman_appendix_${TICKER}.md"
+echo "- outputs/${TICKER}_Calculation_Methodology.md"
+echo "- export/${TICKER}_Calculation_Methodology.docx"
 if [ "$CLEANUP" = "1" ]; then
   echo "- data/processed/news_unified_clean.csv"
 fi

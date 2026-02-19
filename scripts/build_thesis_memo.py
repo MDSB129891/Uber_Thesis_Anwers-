@@ -80,11 +80,21 @@ def eval_claim(val, op, thresh):
 
 # ---------------- main ----------------
 
+
+import argparse
+
+def _get_args():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ticker", required=True)
+    ap.add_argument("--thesis", required=True)
+    return ap.parse_args()
+
+
 def main():
 
-    ticker = "UBER"
-
-    thesis = json.load(open(THESES / f"{ticker}_thesis.json"))
+    args = _get_args()
+    ticker = args.ticker.upper()
+    thesis = json.load(open(args.thesis))
 
     summary = json.load(open(OUTPUTS / "decision_summary.json"))
 

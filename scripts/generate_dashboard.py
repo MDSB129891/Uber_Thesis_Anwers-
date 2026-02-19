@@ -28,6 +28,8 @@ def main(ticker: str):
     clickpack = f"news_clickpack_{ticker}.html"
     memo_md = f"{ticker}_Full_Investment_Memo.md"
     memo_docx = f"{ticker}_Full_Investment_Memo.docx"
+    methodology_md = f"{ticker}_Calculation_Methodology.md"
+    methodology_docx = f"{ticker}_Calculation_Methodology.docx"
 
     rating = decision.get("rating","N/A")
     score = decision.get("score","N/A")
@@ -69,6 +71,8 @@ ul {{ margin: 8px 0 0 18px; }}
       <li><a href="{memo_md}">Full Memo (Markdown)</a></li>
       <li><a href="../export/{memo_docx}">Full Memo (Word)</a></li>
       <li><a href="../export/{ticker}_Full_Investment_Memo.pdf">Full Memo (PDF)</a></li>
+      <li><a href="{methodology_md}">Calculation Methodology (Markdown)</a></li>
+      <li><a href="../export/{methodology_docx}">Calculation Methodology (Word)</a></li>
     </ul>
   </div>
 

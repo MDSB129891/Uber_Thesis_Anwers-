@@ -45,6 +45,9 @@ else
   python3 scripts/build_investment_memo.py --ticker "${TICKER}"
 fi
 
+echo "=== 5a) Calculation methodology (formulas + worked example) ==="
+python3 scripts/build_calculation_methodology.py --ticker "${TICKER}"
+
 
 echo "=== 5b) Export PDF ==="
 python3 scripts/export_pdf.py --ticker "${TICKER}"
@@ -59,7 +62,26 @@ echo "- outputs/veracity_${TICKER}.json"
 echo "- outputs/alerts_${TICKER}.json"
 echo "- outputs/decision_dashboard_${TICKER}.html"
 echo "- export/${TICKER}_Full_Investment_Memo.docx"
+echo "- outputs/${TICKER}_Calculation_Methodology.md"
+echo "- export/${TICKER}_Calculation_Methodology.docx"
 echo ""
 
 open "outputs/decision_dashboard_${TICKER}.html" || true
 open "export/${TICKER}_Full_Investment_Memo.docx" || true
+
+
+echo "=== X) ULTRA memo (novice / explain-everything) ==="
+# If thesis override exists, pass it through; otherwise ULTRA still works.
+if [ -n "${THESIS_OVERRIDE:-}" ] && [ -f "${THESIS_OVERRIDE}" ]; then
+  python3 scripts/build_ultra_memo.py --ticker "$TICKER" --thesis "${THESIS_OVERRIDE}" || true
+else
+  python3 scripts/build_ultra_memo.py --ticker "$TICKER" || true
+fi
+
+echo ""
+echo "🚀 OPENING ULTRA RESULTS"
+if [ -f "export/${TICKER}_ULTRA_Memo.docx" ]; then open "export/${TICKER}_ULTRA_Memo.docx" || true; fi
+if [ -f "outputs/decision_dashboard_${TICKER}.html" ]; then open "outputs/decision_dashboard_${TICKER}.html" || true; fi
+if [ -f "outputs/news_clickpack_${TICKER}.html" ]; then open "outputs/news_clickpack_${TICKER}.html" || true; fi
+if [ -f "outputs/claim_evidence_${TICKER}.html" ]; then open "outputs/claim_evidence_${TICKER}.html" || true; fi
+
