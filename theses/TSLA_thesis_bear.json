@@ -1,0 +1,79 @@
+{
+  "name": "TSLA: Bear case \u2014 only buy if resilient + cheap + risks quiet",
+  "ticker": "TSLA",
+  "description": "Bad world: only buy if cash stays positive, valuation is cheap enough, and risk headlines are not escalating.",
+  "claims": [
+    {
+      "id": "fcf_positive",
+      "statement": "Free cash flow is still positive even if conditions worsen",
+      "metric": "latest_free_cash_flow",
+      "operator": ">",
+      "threshold": 0,
+      "weight": 4
+    },
+    {
+      "id": "rev_not_collapsing",
+      "statement": "Revenue growth does not collapse",
+      "metric": "latest_revenue_yoy_pct",
+      "operator": ">=",
+      "threshold": 7.3,
+      "weight": 2
+    },
+    {
+      "id": "fcf_margin_floor",
+      "statement": "Cash conversion stays above a minimum floor",
+      "metric": "latest_fcf_margin_pct",
+      "operator": ">=",
+      "threshold": 9.4,
+      "weight": 2
+    },
+    {
+      "id": "valuation_must_be_cheap",
+      "statement": "Stock is cheap enough to compensate for risks (higher required cash yield)",
+      "metric": "fcf_yield_pct",
+      "operator": ">=",
+      "threshold": 5.0,
+      "weight": 3
+    },
+    {
+      "id": "news_must_be_quiet",
+      "statement": "News risk is not escalating (quiet headlines)",
+      "metric": "news_shock_30d",
+      "operator": ">=",
+      "threshold": -10.0,
+      "weight": 2
+    },
+    {
+      "id": "insurance_must_be_low",
+      "statement": "Insurance risk stays low (if this spikes, it can be structural)",
+      "metric": "risk_insurance_neg_30d",
+      "operator": "<=",
+      "threshold": 2,
+      "weight": 2
+    },
+    {
+      "id": "regulatory_must_be_low",
+      "statement": "Regulatory risk stays low",
+      "metric": "risk_regulatory_neg_30d",
+      "operator": "<=",
+      "threshold": 5,
+      "weight": 1
+    },
+    {
+      "id": "labor_must_be_low",
+      "statement": "Labor risk stays low",
+      "metric": "risk_labor_neg_30d",
+      "operator": "<=",
+      "threshold": 2,
+      "weight": 1
+    },
+    {
+      "id": "balance_net_debt_to_fcf",
+      "statement": "Debt burden is manageable (net debt <= ~2.5 years of free cash flow)",
+      "metric": "latest_net_debt_to_fcf",
+      "operator": "<=",
+      "threshold": 2.5,
+      "weight": 2
+    }
+  ]
+}

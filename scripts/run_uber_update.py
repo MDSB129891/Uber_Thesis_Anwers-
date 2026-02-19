@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 import sys
 from pathlib import Path
@@ -24,10 +25,16 @@ from analytics.news.sentiment_proxy import build_news_sentiment_proxy
 from analytics.news.risk_dashboard import build_news_risk_dashboard
 from analytics.news.evidence import build_evidence_table, write_evidence_html
 
-PRIMARY = "UBER"
-PEERS = ["LYFT", "DASH"]
-UNIVERSE = [PRIMARY] + PEERS
-
+# ---- Thanos-safe universe config (do not edit by hand) ----
+TICKER = os.getenv("TICKER", "UBER").strip().upper()
+PEERS = [s.strip().upper() for s in os.getenv("PEERS", "LYFT,DASH").split(",") if s.strip()]
+UNIVERSE = [TICKER] + [p for p in PEERS if p != TICKER]
+# Optional override: set UNIVERSE="UBER,LYFT,DASH" to fully control
+UNIVERSE_ENV = os.getenv("UNIVERSE", "")
+if UNIVERSE_ENV.strip():
+    UNIVERSE = [s.strip().upper() for s in UNIVERSE_ENV.split(",") if s.strip()]
+# -----------------------------------------------------------
+PRIMARY = UNIVERSE[0]  # dynamic primary ticker
 AS_OF = date.today().isoformat()
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -434,7 +441,26 @@ def compute_decision_with_peers_and_news(comps: pd.DataFrame, news_summary: dict
         news_summary=news_summary,
         news_proxy=news_proxy_row,
     )
+def write_ticker_json(outputs_dir, ticker: str, basename: str, obj: dict) -> str:
+    """
+    Writes BOTH:
+      1) outputs/<basename>_<TICKER>.json  (ticker-scoped, never overwritten by other tickers)
+      2) outputs/<basename>.json          (latest convenience copy)
+    Returns the ticker-scoped path as a string.
+    """
+    import json
+    from pathlib import Path
 
+    outputs_dir = Path(outputs_dir)
+    outputs_dir.mkdir(parents=True, exist_ok=True)
+
+    t = (ticker or "").upper().strip()
+    scoped = outputs_dir / f"{basename}_{t}.json"
+    latest = outputs_dir / f"{basename}.json"
+
+    scoped.write_text(json.dumps(obj, indent=2, default=str), encoding="utf-8")
+    latest.write_text(scoped.read_text(encoding="utf-8"), encoding="utf-8")
+    return str(scoped)
 
 # ---------------------------
 # Main

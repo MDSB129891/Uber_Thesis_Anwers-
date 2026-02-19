@@ -1,0 +1,2 @@
+TICKER=GM
+THESIS=I think GM is increasing EV production which will drive revenue and stock price higher

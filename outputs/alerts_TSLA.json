@@ -1,0 +1,25 @@
+{
+  "ticker": "TSLA",
+  "generated_utc": "2026-02-19 01:10 UTC",
+  "inputs": {
+    "revenue_yoy_pct": 18.27959434262585,
+    "free_cash_flow": 9763000000.0,
+    "fcf_margin_pct": 18.768864025222523,
+    "news_shock_30d": -25.0,
+    "risk_counts_30d": {
+      "risk_financial_neg_30d": 1,
+      "risk_labor_neg_30d": 2,
+      "risk_regulatory_neg_30d": 5,
+      "risk_safety_neg_30d": 1,
+      "risk_total_neg_30d": 9
+    }
+  },
+  "alerts": [
+    {
+      "id": "headline_crisis",
+      "severity": "MED",
+      "message": "News shock is severe (<-20). Risks may be escalating."
+    }
+  ],
+  "alert_count": 1
+}

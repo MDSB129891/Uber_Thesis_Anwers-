@@ -1,0 +1,4 @@
+mode: hybrid
+ticker: TSLA
+peers: [GM, F]
+thesis: theses/TSLA_thesis_base.json

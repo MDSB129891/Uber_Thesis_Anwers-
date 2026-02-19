@@ -1,102 +1,114 @@
 {
   "ticker": "UBER",
-  "generated_utc": "2026-02-18T23:49:15.708975+00:00",
-  "confidence_score": 75,
-  "breakdown": {
-    "rows": 208,
-    "url_coverage": 1.0,
-    "top_source": "finnhub",
-    "top_source_share": 0.957,
-    "unique_domains": 2,
-    "sec_share": 0.043,
-    "whitelist_share": 0.043,
-    "recent_share_7d": 0.365,
-    "dup_ratio_titles": 0.0,
-    "notes": [
-      "Confidence is evidence-quality + cross-checkability (not stock performance).",
-      "Single-source dominance lowers confidence. SEC + reputable domains raise it."
-    ]
+  "generated_utc": "2026-02-19 01:31 UTC",
+  "rows": 209,
+  "url_coverage": 1.0,
+  "source_counts": {
+    "finnhub": 199,
+    "sec": 10
+  },
+  "whitelist_hit_ratio": 0.048,
+  "has_sec": true,
+  "confidence_score": 52,
+  "confidence_details": {
+    "hhi": 0.909
   },
   "must_click": [
     {
       "published_at": "2026-02-17T10:04:21+00:00",
       "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7",
       "risk_tag": "INSURANCE",
-      "impact_score": -3,
-      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7"
+      "impact_score": -3
     },
     {
       "published_at": "2026-02-09T17:03:00+00:00",
       "title": "Bank of America resets Uber stock price after earnings",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=61772357fffdc75b23e68cb9e8ec768f87efec9d34433df68f6bbb124968ce12",
       "risk_tag": "REGULATORY",
-      "impact_score": -3,
-      "url": "https://finnhub.io/api/news?id=61772357fffdc75b23e68cb9e8ec768f87efec9d34433df68f6bbb124968ce12"
-    },
-    {
-      "published_at": "2026-02-10T22:10:18+00:00",
-      "title": "Uber Liability Verdict Puts Safety Data And Investor Risks In Focus",
-      "source": "finnhub",
-      "risk_tag": "INSURANCE",
-      "impact_score": -2,
-      "url": "https://finnhub.io/api/news?id=f10e3a67099b57552a9d829bee868929c2cc772f1f637964f1cd149e473b8a20"
+      "impact_score": -3
     },
     {
       "published_at": "2026-02-10T00:28:00+00:00",
       "title": "Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl \"Consumer Alert\" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b",
       "risk_tag": "SAFETY",
-      "impact_score": -2,
-      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b"
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-10T22:10:18+00:00",
+      "title": "Uber Liability Verdict Puts Safety Data And Investor Risks In Focus",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=f10e3a67099b57552a9d829bee868929c2cc772f1f637964f1cd149e473b8a20",
+      "risk_tag": "INSURANCE",
+      "impact_score": -2
     },
     {
       "published_at": "2026-02-09T05:06:13+00:00",
       "title": "Uber Jury Verdict Raises Fresh Questions On Safety Risks And Valuation",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838",
       "risk_tag": "SAFETY",
-      "impact_score": -2,
-      "url": "https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838"
+      "impact_score": -2
     },
     {
-      "published_at": "2026-02-18T19:20:00+00:00",
-      "title": "David Tepper\u2019s Appaloosa Trims Alibaba and Adds Micron, Alphabet in Stock Reshuffle",
+      "published_at": "2026-02-09T10:00:00+00:00",
+      "title": "IBM spin-off CFO departs amid cash management review: Trial Balance",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=82270a4c740bf3b7678322f439605063222c3186cb41c0c3f3796392b0221292",
       "risk_tag": "OTHER",
-      "impact_score": 0,
-      "url": "https://finnhub.io/api/news?id=466b44aa26573227c5dd2b65cdede8385baca8446e5e8335b2da91cfe08cb3d1"
+      "impact_score": 0
     },
     {
-      "published_at": "2026-02-18T19:08:03+00:00",
-      "title": "Uber offers incentives for EV chargers, Wendy's stock surges",
+      "published_at": "2026-02-09T08:22:35+00:00",
+      "title": "Uber Deepens T\u00fcrkiye Footprint With Getir Delivery Buyout",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=33d2c5ad35b4d45f75ed416b52f6132b4b1a2216f7b1fc4b392be4492c910a70",
       "risk_tag": "OTHER",
-      "impact_score": 0,
-      "url": "https://finnhub.io/api/news?id=8ccbcd773be9ce94b90f1df2a5c8b76d516bbd8b1d5a28c337fbc7c7b01cfffd"
+      "impact_score": 0
     },
     {
-      "published_at": "2026-02-18T18:28:45+00:00",
-      "title": "Uber to Invest $100M in Autonomous Vehicle Charging Network",
+      "published_at": "2026-02-09T07:08:07+00:00",
+      "title": "Uber To Acquire Getir's T\u00fcrkiye Delivery Portfolio Covering Food, Grocery, Retail, And Water Services; Terms Not Disclosed",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=049ae8617ee0c75685d83074cae5958e3cad04be216687f8b7f0e75e6802259f",
       "risk_tag": "OTHER",
-      "impact_score": 0,
-      "url": "https://finnhub.io/api/news?id=5bfba49d337267800a787eb955a182e34544dadc572208cd8823efc22b2d66a1"
+      "impact_score": 0
     },
     {
-      "published_at": "2026-02-18T17:50:18+00:00",
-      "title": "Jim Cramer Discusses \u201cOver Trading\u201d In Uber (UBER) Stock",
+      "published_at": "2026-02-09T06:00:01+00:00",
+      "title": "Lyft debuts teen accounts more than two years after Uber",
       "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=de2d8eae90608556df6105b711a5c099a8ef9319f40596da163d78ed0b36599b",
       "risk_tag": "OTHER",
-      "impact_score": 0,
-      "url": "https://finnhub.io/api/news?id=1593168d794381e0ec754a0cb36efdc1ab933442c39023b4537fb8cefc8ca052"
+      "impact_score": 0
     },
     {
-      "published_at": "2026-02-18T17:13:00+00:00",
-      "title": "DoorDash Earnings Are Today. It\u2019s All About the Outlook.",
+      "published_at": "2026-02-09T02:08:13+00:00",
+      "title": "Tesla Announces New Semi Truck Trim Levels, Elon Musk Reaffirms Volume Production This Year",
       "source": "finnhub",
-      "risk_tag": "FINANCIAL",
-      "impact_score": 0,
-      "url": "https://finnhub.io/api/news?id=6f40675ef1ebdfd292c457736b6c46f0a30220010a2e0617ffb66156764e71b9"
+      "url": "https://finnhub.io/api/news?id=cbde98592fd6bccdfe0b7dcae8899aa7b050ceddbb3674619d857471834d7ec4",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T00:00:00+00:00",
+      "title": "UBER SEC filing: 8-K (2026-02-09)",
+      "source": "sec",
+      "url": "https://www.sec.gov/Archives/edgar/data/1543151/000155278126000043/e26049_uber-8k.htm",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-08T20:05:00+00:00",
+      "title": "Dara Khosrowshahi Just Delivered Incredible News for Uber Stock Investors",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=237cda7c2af5eaa3c7d46c14400961f0cd75ae98e31452285ead4c7b35a5c265",
+      "risk_tag": "OTHER",
+      "impact_score": 0
     }
   ]
 }

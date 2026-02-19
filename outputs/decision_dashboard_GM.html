@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset='utf-8'/>
+<title>Decision Dashboard — GM</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;max-width:980px;margin:24px auto;padding:0 12px;}
+code{background:#f3f3f3;padding:2px 6px;border-radius:6px;}
+.card{border:1px solid #ddd;border-radius:16px;padding:14px 16px;margin:12px 0;}
+h1{margin:0 0 6px 0;}
+.warn{background:#fff3cd;border:1px solid #ffe69c;}
+</style></head><body>
+<h1>📊 Decision Dashboard — GM</h1>
+<p><b>Generated:</b> 2026-02-19 01:13 UTC</p>
+<div class='card warn'>
+<h2>⚠️ Ticker mismatch warning</h2>
+<p>Your <code>outputs/decision_summary.json</code> says ticker <b>TSLA</b>, but you asked for <b>GM</b>.</p>
+<p>This usually means the engine update step didn’t run for the requested ticker (or wrote over the shared summary).</p>
+</div>
+<div class='card'>
+<h2>1) Quick summary</h2>
+<p><b>Model rating:</b> AVOID &nbsp; <b>Score:</b> 37/100</p>
+<p><b>Bucket scores:</b></p><ul>
+<li>cash_level: <b>15</b></li>
+<li>valuation: <b>5</b></li>
+<li>growth: <b>9</b></li>
+<li>quality: <b>6</b></li>
+<li>balance_risk: <b>2</b></li>
+</ul>
+<p><b>Red flags:</b></p><ul>
+<li>TTM revenue declining YoY</li>
+<li>Frequent LABOR/INSURANCE/REGULATORY negatives (30d)</li>
+<li>News: 9 negative headlines in last 7d (shock -25)</li>
+</ul>
+</div>
+<div class='card'>
+<h2>2) What to open (in order)</h2>
+<ol>
+<li><b>Full memo PDF</b> — <code>export/GM_Full_Investment_Memo.pdf</code></li>
+<li><b>Claim evidence</b> — <code>outputs/claim_evidence_GM.html</code></li>
+<li><b>Clickpack</b> — <code>outputs/news_clickpack_GM.html</code></li>
+</ol>
+</div>
+<div class='card'>
+<h2>3) All artifacts</h2>
+<ul>
+<li>⚠️ <a href="../export/GM_Full_Investment_Memo.pdf">Full memo (PDF)</a> <code>export/GM_Full_Investment_Memo.pdf</code></li>
+<li>⚠️ <a href="../export/GM_Full_Investment_Memo.docx">Full memo (DOCX)</a> <code>export/GM_Full_Investment_Memo.docx</code></li>
+<li>⚠️ <a href="../outputs/decision_dashboard_GM.html">One-page dashboard (this file)</a> <code>outputs/decision_dashboard_GM.html</code></li>
+<li>⚠️ <a href="../outputs/news_clickpack_GM.html">Clickpack (news links)</a> <code>outputs/news_clickpack_GM.html</code></li>
+<li>⚠️ <a href="../outputs/claim_evidence_GM.html">Claim evidence (thesis stress test)</a> <code>outputs/claim_evidence_GM.html</code></li>
+<li>⚠️ <a href="../outputs/veracity_GM.json">Veracity / confidence JSON</a> <code>outputs/veracity_GM.json</code></li>
+<li>⚠️ <a href="../outputs/alerts_GM.json">Alerts (red lines)</a> <code>outputs/alerts_GM.json</code></li>
+<li>⚠️ <a href="../outputs/hybrid_signals_GM.json">Hybrid signals JSON</a> <code>outputs/hybrid_signals_GM.json</code></li>
+<li>✅ <a href="../data/processed/news_unified.csv">Unified news CSV</a> <code>data/processed/news_unified.csv</code></li>
+<li>✅ <a href="../data/processed/news_unified_clean.csv">Clean news CSV</a> <code>data/processed/news_unified_clean.csv</code></li>
+<li>✅ <a href="../data/processed/news_risk_dashboard.csv">News risk dashboard CSV</a> <code>data/processed/news_risk_dashboard.csv</code></li>
+<li>✅ <a href="../data/processed/fundamentals_annual_history.csv">Fundamentals annual history CSV</a> <code>data/processed/fundamentals_annual_history.csv</code></li>
+<li>✅ <a href="../data/processed/fundamentals_quarterly.csv">Fundamentals quarterly CSV</a> <code>data/processed/fundamentals_quarterly.csv</code></li>
+<li>✅ <a href="../data/processed/comps_snapshot.csv">Comps snapshot CSV</a> <code>data/processed/comps_snapshot.csv</code></li>
+</ul></div>
+<div class='card'>
+<h2>3) Plain-English cheat sheet</h2>
+<ul>
+<li><b>Score</b>: 0–100 summary signal from cash/growth/valuation/quality/risk buckets.</li>
+<li><b>Clickpack</b>: raw headlines with URLs so you can verify the model isn’t hallucinating.</li>
+<li><b>Claim evidence</b>: maps each thesis claim to supporting/contradicting headlines.</li>
+<li><b>Veracity</b>: checks if evidence is diverse and from higher-trust domains.</li>
+</ul>
+</div>
+</body></html>

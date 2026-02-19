@@ -5,14 +5,212 @@ import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+def _load_claim_evidence(outputs_dir: Path, ticker: str) -> dict:
+    p = outputs_dir / f"claim_evidence_{ticker.upper()}.json"
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+def _fmt_status(s: str) -> str:
+    s = (s or "").upper()
+    if s == "PASS": return "✅ PASS"
+    if s == "FAIL": return "❌ FAIL"
+    return "❓ UNKNOWN"
+
+def _metric_plain_help(metric: str) -> str:
+    # Fallback plain-English help if claim evidence didn't include it
+    d = {
+        "latest_revenue_yoy_pct": "Revenue growth YoY: how fast sales are growing vs last year.",
+        "latest_free_cash_flow": "Free cash flow: cash left after expenses + investment. Fuel for buybacks, debt paydown, survival.",
+        "latest_fcf_margin_pct": "FCF margin: cash profit per $1 revenue. Higher = better cash conversion.",
+        "fcf_yield_pct": "FCF yield: cash return vs market cap. Higher = cheaper vs cash (usually).",
+        "news_shock_30d": "News shock proxy: how negative recent headlines were. More negative = rougher news."
+    }
+    return d.get(metric, "A numeric checkpoint the thesis uses to test reality.")
+
+
+    for r in rows:
+        c = r.get("claim", {}) or {}
+        statement = c.get("statement","(claim)") 
+        metric = c.get("metric","")
+        op = c.get("operator","")
+        thr = c.get("threshold","")
+        status = r.get("status","UNKNOWN")
+        actual = r.get("actual","N/A")
+        meaning = r.get("meaning") or _metric_plain_help(metric)
+        good = r.get("good") or ""
+        bad = r.get("bad") or ""
+
+        out.append(f"### {_fmt_status(status)} — {statement}\\n")
+        out.append(f"- **Metric:** `{metric}`  \\n- **Rule:** `{metric} {op} {thr}`  \\n- **Actual:** **{actual}**\\n")
+        out.append(f"- **Plain English:** {meaning}\\n")
+        if good:
+            out.append(f"- **Usually good:** {good}\\n")
+        if bad:
+            out.append(f"- **Usually bad:** {bad}\\n")
+
+        bull = r.get("bull_evidence") or []
+        bear = r.get("bear_evidence") or []
+
+        def bullet_list(label, items):
+            if not items:
+                return f"**{label}:** *(no matching headlines found)*\\n"
+            s = [f"**{label}:**"]
+            for e in items[:max_bullets]:
+                title = e.get("title","")
+                url = e.get("url","")
+                src = e.get("source","")
+                tag = e.get("risk_tag","")
+                tag_s = f" [{tag}]" if tag else ""
+                s.append(f"- {title}{tag_s} — *{src}* ({url})")
+            return "\\n".join(s) + "\\n"
+
+        out.append(bullet_list("Bull evidence (support)", bull))
+        out.append(bullet_list("Bear evidence (risk)", bear))
+        out.append("\\n---\\n")
+
+    return "\\n".join(out)
 from typing import Any, Dict, List, Optional, Tuple
 
 import pandas as pd
+
+# --- path-safe import for verdict.py (works from repo root or anywhere) ---
+import sys
+from pathlib import Path as _Path
+_REPO_ROOT = _Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+try:
+    # Prefer local module in scripts/
+    from scripts.verdict import build_verdict  # type: ignore
+except Exception:
+    # Fallback: import by filepath
+    import importlib.util as _ilu
+    _vpath = _REPO_ROOT / "scripts" / "verdict.py"
+    spec = _ilu.spec_from_file_location("verdict", str(_vpath))
+    mod = _ilu.module_from_spec(spec)  # type: ignore
+    assert spec and spec.loader
+    spec.loader.exec_module(mod)  # type: ignore
+    build_verdict = getattr(mod, "build_verdict")
+# ------------------------------------------------------------------------
+
+
+import argparse
 from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 
+
+
+# =========================
+# Stormbreaker helpers
+# =========================
+
+def _load_claim_evidence(outputs_dir: Path, ticker: str) -> dict:
+    """Loads outputs/claim_evidence_<TICKER>.json if present."""
+    fp = outputs_dir / f"claim_evidence_{ticker.upper()}.json"
+    if not fp.exists():
+        return {}
+    try:
+        return json.loads(fp.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+def _fmt_claim_status(s: str) -> str:
+    s = (s or "").upper().strip()
+    if s == "PASS":
+        return "✅ PASS"
+    if s == "FAIL":
+        return "❌ FAIL"
+    return "❓ UNKNOWN"
+
+def _metric_plain_help(metric: str) -> str:
+    """Fallback plain-English explanations if claim pack doesn't include them."""
+    d = {
+        "latest_revenue_yoy_pct": "Revenue growth YoY: how fast sales are growing vs last year.",
+        "latest_free_cash_flow": "Free cash flow: cash left after costs + reinvestment. Fuel for buybacks, debt paydown, survival.",
+        "latest_fcf_margin_pct": "FCF margin: cash profit per $1 of revenue. Higher = better cash conversion.",
+        "fcf_yield_pct": "FCF yield: cash return vs market cap. Higher often means 'cheaper' vs cash.",
+        "news_shock_30d": "News shock proxy: how negative recent headlines were. More negative = rougher news period.",
+        "risk_insurance_neg_30d": "Insurance risk count: insurance-related negatives recently.",
+        "risk_labor_neg_30d": "Labor risk count: labor-related negatives recently.",
+        "risk_regulatory_neg_30d": "Regulatory risk count: regulatory negatives recently.",
+    }
+    return d.get(metric, "A numeric checkpoint your thesis uses to test reality.")
+
+def _render_claim_evidence_md(claim_pack: dict, max_bullets: int = 3) -> str:
+    """
+    Renders a novice-friendly section showing PASS/FAIL per claim,
+    and bull vs bear headline evidence (with links).
+    """
+    if not claim_pack:
+        return "## Thesis Stress Test (Bull vs Bear Evidence)\n*(No claim evidence found — run build_claim_evidence first.)*\n"
+
+    rows = claim_pack.get("results", []) or []
+    if not rows:
+        return "## Thesis Stress Test (Bull vs Bear Evidence)\n*(No claim evidence rows found.)*\n"
+
+    out = []
+    out.append("## Thesis Stress Test (Bull vs Bear Evidence)\n")
+    out.append(
+        "This section shows **exactly** how each thesis claim performed, plus the strongest **supporting vs opposing** headlines.\n"
+        "Think of this as: *what helps the thesis* vs *what could break it*.\n\n"
+        "> Quick read: If the same risk tag repeats (LABOR / REGULATORY / INSURANCE), it’s more likely structural.\n"
+    )
+
+    def bullets(label: str, items: list) -> str:
+        if not items:
+            return f"**{label}:** *(no matching headlines found)*\n"
+        s = [f"**{label}:**"]
+        for e in items[:max_bullets]:
+            title = (e.get("title") or "").strip()
+            url = (e.get("url") or "").strip()
+            src = (e.get("source") or "").strip()
+            tag = (e.get("risk_tag") or "").strip()
+            tag_s = f" [{tag}]" if tag else ""
+            if url:
+                s.append(f"- {title}{tag_s} — *{src}* ({url})")
+            else:
+                s.append(f"- {title}{tag_s} — *{src}*")
+        return "\n".join(s) + "\n"
+
+    for r in rows:
+        c = r.get("claim", {}) or {}
+        statement = (c.get("statement") or "(claim)").strip()
+        metric = (c.get("metric") or "").strip()
+        op = (c.get("operator") or "").strip()
+        thr = c.get("threshold")
+        status = r.get("status", "UNKNOWN")
+        actual = r.get("actual", "N/A")
+
+        meaning = (r.get("meaning") or "").strip() or _metric_plain_help(metric)
+        good = (r.get("good") or "").strip()
+        bad = (r.get("bad") or "").strip()
+
+        out.append(f"### {_fmt_claim_status(status)} — {statement}\n")
+        out.append(f"- **Metric:** `{metric}`\n- **Rule:** `{metric} {op} {thr}`\n- **Actual:** **{actual}**\n")
+        out.append(f"- **Plain English:** {meaning}\n")
+        if good:
+            out.append(f"- **Usually good:** {good}\n")
+        if bad:
+            out.append(f"- **Usually bad:** {bad}\n")
+
+        out.append(bullets("Bull evidence (support)", r.get("bull_evidence") or []))
+        out.append(bullets("Bear evidence (risk)", r.get("bear_evidence") or []))
+        out.append("\n---\n")
+
+    return "\n".join(out)
+
+# =========================
+# End Stormbreaker helpers
+# =========================
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PROCESSED = ROOT / "data" / "processed"
 OUTPUTS = ROOT / "outputs"
@@ -321,6 +519,16 @@ def eval_thesis(thesis: dict, metrics: Dict[str, Any]) -> Tuple[float, int, int,
     return support_pct, earned, total, results
 
 
+
+
+def thesis_files_for_override(ticker: str, thesis_path: str | None) -> dict:
+    if thesis_path:
+        p = Path(thesis_path)
+        if not p.exists():
+            raise FileNotFoundError(f"Thesis file not found: {p}")
+        return {"base": p}
+    return thesis_files_for(ticker)
+
 def thesis_files_for(ticker: str) -> Dict[str, Path]:
     base = THESES / f"{ticker}_thesis_base.json"
     bull = THESES / f"{ticker}_thesis_bull.json"
@@ -435,8 +643,8 @@ def doc_add_lines(doc: Document, text: str) -> None:
         doc.add_paragraph(line)
 
 
-def main():
-    ticker = DEFAULT_TICKER
+def main(ticker: str = DEFAULT_TICKER, thesis_path: str | None = None):
+    ticker = ticker
 
     # decision summary
     decision = safe_read_json(OUTPUTS / "decision_summary.json")
@@ -449,7 +657,7 @@ def main():
     must_click = veracity.get("must_click") or []
 
     metrics = build_metrics_snapshot(ticker)
-    files = thesis_files_for(ticker)
+    files = thesis_files_for_override(ticker, thesis_path)
     if "base" not in files:
         raise FileNotFoundError(f"Missing base thesis file. Run: python3 scripts/generate_thesis_suite.py")
 
@@ -523,6 +731,10 @@ def main():
     md.append(build_next_steps())
 
     md_path = OUTPUTS / f"{ticker}_Full_Investment_Memo.md"
+    
+    # --- Stormbreaker: embed claim evidence into memo ---
+    claim_pack = _load_claim_evidence(OUTPUTS, ticker)
+    md.append(_render_claim_evidence_md(claim_pack, max_bullets=3))
     md_path.write_text("\n".join(md), encoding="utf-8")
 
     doc = Document()
@@ -572,10 +784,16 @@ def main():
     docx_path = EXPORT / f"{ticker}_Full_Investment_Memo.docx"
     doc.save(docx_path)
 
-    print("DONE ✅ Memo created:")
+
     print(f"- {md_path}")
     print(f"- {docx_path}")
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ticker", default=DEFAULT_TICKER)
+    ap.add_argument("--thesis", default=None, help="Path to a thesis JSON to test (optional)")
+    args = ap.parse_args()
+    main(args.ticker, args.thesis)
+
+print("DONE Memo created")

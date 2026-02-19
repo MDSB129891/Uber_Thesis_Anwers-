@@ -14,6 +14,9 @@ THESES = ROOT / "theses"
 
 DEFAULT_TICKER = "UBER"
 
+import argparse
+
+
 
 def safe_read_csv(path: Path) -> pd.DataFrame:
     try:
@@ -228,8 +231,8 @@ def build_suite(ticker: str, m: Dict[str, Any]) -> Dict[str, dict]:
     }
 
 
-def main():
-    ticker = DEFAULT_TICKER
+def main(ticker: str = DEFAULT_TICKER):
+    ticker = ticker
     THESES.mkdir(parents=True, exist_ok=True)
 
     metrics = build_metrics_snapshot(ticker)
@@ -246,4 +249,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ticker", default=DEFAULT_TICKER)
+    args = ap.parse_args()
+    main(args.ticker)
+

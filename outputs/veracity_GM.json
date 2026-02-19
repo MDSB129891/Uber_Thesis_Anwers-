@@ -1,0 +1,114 @@
+{
+  "ticker": "GM",
+  "generated_utc": "2026-02-19 01:20 UTC",
+  "rows": 206,
+  "url_coverage": 1.0,
+  "source_counts": {
+    "finnhub": 200,
+    "sec": 6
+  },
+  "whitelist_hit_ratio": 0.029,
+  "has_sec": true,
+  "confidence_score": 46,
+  "confidence_details": {
+    "hhi": 0.943
+  },
+  "must_click": [
+    {
+      "published_at": "2026-02-04T18:00:50+00:00",
+      "title": "General Motors Company (GM) Presents at Federal Reserve Bank of Chicago's Automotive Insights Symposium Transcript",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=d3cf21d936dbc04a6a41b0a2342d6dbc6dba4b363a2d113d4e0fd85b7f9d0503",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-04T13:22:05+00:00",
+      "title": "Lithium Americas (TSX:LAC) Is Down 17.6% After DOE, GM Reshape Thacker Pass Funding Warrants",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=83584856f7d8ccea3165a2e6f15f71ca9ab95462a22c7162ab329cb973f7159f",
+      "risk_tag": "SAFETY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-01-31T14:30:22+00:00",
+      "title": "Minivan sales surge 21% in 2025 as millennial dads lead demand for cars offering the 'best bang for your buck'",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=7466d134c04c4aca012c6b4e1fb3b842a474b420e5f4d1f6531d389bd6c3b8f5",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-02T16:57:16+00:00",
+      "title": "Top Midday Stories: Big Companies Join Trump Effort to Stockpile Rare Earths; Devon, Coterra Strike $58 Billion Merger Deal",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=3c05d37cfc3dc6e0a21149e1a965a40b5c4a152809bb9d559e9c6db484462b3c",
+      "risk_tag": "LABOR",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-11T19:40:40+00:00",
+      "title": "DZ Bank is Bullish on General Motors Company (GM)",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=6e41345e9e17b05d047a0f37402350846b4c2b5240c11937b66bea1adb607100",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-10T15:49:52+00:00",
+      "title": "BYD Vs. Trump: Why Tesla, Ford And GM Are Watching This Lawsuit Closely",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=4387c6422e83fe9287564b86c5bb2f0a243bc82f79cab506b26c05e8ff491f72",
+      "risk_tag": "INSURANCE",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-03T14:32:00+00:00",
+      "title": "NHTSA expands investigation into 2015 - 2017 Ford F-150s over dangerous transmission issue",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=1eceb275d4850da4a25f47e68367fe889f05b31cedda34955b2638e0fb33ec56",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-11T14:45:26+00:00",
+      "title": "Odds Trump Is Forced To Refund Tariffs Drop Sharply As Supreme Court Justice Warns Of Legal Complexity",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=bb0becb699b3bf751fba926d19ceedba051109bf60db005d51aba82c6a398e7c",
+      "risk_tag": "REGULATORY",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-06T08:07:26+00:00",
+      "title": "General Motors CFO Flags $3\u2013$4B Tariff Hit, Margin Rebound and EV Reset at Conference",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=95cb085c3bd3f3b5392a4b3d43d83b20a309cf1f09eb6af101c9600a94b408fb",
+      "risk_tag": "FINANCIAL",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-06T03:07:43+00:00",
+      "title": "Assessing General Motors (GM) Valuation After A Strong Year Of Shareholder Returns",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=fe7390d09112b553620e4f7aafa52cc3aa993984c63bc08f691c2f24da380792",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-05T21:38:12+00:00",
+      "title": "EV Company News For The Month Of January 2026",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=a42293abbb5ca9480ac60835b65e44a0f13b9d29854ec30f52bee56091313825",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-05T16:43:00+00:00",
+      "title": "General Motors Co. stock underperforms Thursday when compared to competitors",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=b44c285401b2cd9798086c5369c63a6161b65b3b924bc3614f5ac0c9d5307d12",
+      "risk_tag": "COMPETITION",
+      "impact_score": 0
+    }
+  ]
+}

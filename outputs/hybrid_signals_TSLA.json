@@ -1,0 +1,23 @@
+{
+  "as_of": "2026-02-19T01:10:52+00:00",
+  "mode": "hybrid",
+  "ticker": "TSLA",
+  "tactical": {
+    "ticker": "TSLA",
+    "shock_7d": -25,
+    "neg_7d": 9,
+    "articles_7d": 200,
+    "tactical_alert": true
+  },
+  "institutional": {
+    "confirmed_tags": {},
+    "confirmed_any": false
+  },
+  "source_mix": {
+    "top_source": "finnhub",
+    "source_share_top": 0.9900990099009901,
+    "source_diversity": 2,
+    "cred_weighted_avg": 0.7227722772277227
+  },
+  "hybrid_escalate": false
+}

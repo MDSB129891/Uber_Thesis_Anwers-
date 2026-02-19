@@ -1,0 +1,55 @@
+{
+  "name": "GM: I think they are going to increase EV production making their stock rise",
+  "ticker": "GM",
+  "description": "I think they are going to increase EV production making their stock rise",
+  "claims": [
+    {
+      "id": "rev_growth",
+      "statement": "Revenue is still growing at a healthy pace",
+      "metric": "latest_revenue_yoy_pct",
+      "operator": ">=",
+      "threshold": 5,
+      "weight": 2
+    },
+    {
+      "id": "fcf_positive",
+      "statement": "Free cash flow is positive",
+      "metric": "latest_free_cash_flow",
+      "operator": ">",
+      "threshold": 0,
+      "weight": 3
+    },
+    {
+      "id": "fcf_margin_ok",
+      "statement": "Free cash flow margin is solid",
+      "metric": "latest_fcf_margin_pct",
+      "operator": ">=",
+      "threshold": 5,
+      "weight": 2
+    },
+    {
+      "id": "valuation_ok",
+      "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
+      "metric": "fcf_yield_pct",
+      "operator": ">=",
+      "threshold": 2.0,
+      "weight": 2
+    },
+    {
+      "id": "news_not_crisis",
+      "statement": "Recent news shock is not severe (not a headline crisis)",
+      "metric": "news_shock_30d",
+      "operator": ">=",
+      "threshold": -20,
+      "weight": 1
+    },
+    {
+      "id": "ev_story_not_headline_crisis",
+      "statement": "EV narrative is not dominated by negative headlines recently",
+      "metric": "risk_regulatory_neg_30d",
+      "operator": "<=",
+      "threshold": 10,
+      "weight": 1
+    }
+  ]
+}

@@ -1,279 +1,214 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
+import csv
 import json
-from collections import Counter
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
-from urllib.parse import urlparse
+from typing import Dict, List, Any, Tuple
 
 import pandas as pd
 
-
 ROOT = Path(__file__).resolve().parents[1]
-DATA_PROCESSED = ROOT / "data" / "processed"
-OUTPUTS = ROOT / "outputs"
+DATA = ROOT / "data" / "processed"
+OUT = ROOT / "outputs"
 EXPORT = ROOT / "export"
 
-OUTPUTS.mkdir(parents=True, exist_ok=True)
+OUT.mkdir(parents=True, exist_ok=True)
 
-DEFAULT_TICKER = "UBER"
+TOP_TIER_DEFAULT = {
+    "reuters", "bloomberg", "wsj", "wall street journal", "financial times", "ft",
+    "sec", "edgar", "cnbc", "the information"
+}
 
+def utc_now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-def utc_now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
-
-
-def safe_read_csv(path: Path) -> pd.DataFrame:
+def read_csv(p: Path) -> pd.DataFrame:
     try:
-        return pd.read_csv(path)
+        return pd.read_csv(p)
     except Exception:
         return pd.DataFrame()
 
-
-def safe_read_whitelist(path: Path) -> List[str]:
-    if not path.exists():
-        return []
-    try:
-        df = pd.read_csv(path)
-        cols = [c.lower() for c in df.columns]
-        if "domain" in cols:
-            return [str(x).strip().lower() for x in df[df.columns[cols.index("domain")]].dropna().tolist()]
-        if len(df.columns) == 1:
-            return [str(x).strip().lower() for x in df[df.columns[0]].dropna().tolist()]
-        return []
-    except Exception:
-        return []
-
-
-def domain_of(url: str) -> str:
-    try:
-        u = urlparse(str(url))
-        d = (u.netloc or "").lower()
-        return d.replace("www.", "")
-    except Exception:
-        return ""
-
-
-def coerce_float(x: Any) -> Optional[float]:
-    try:
-        if x is None:
-            return None
-        if isinstance(x, str) and x.strip() == "":
-            return None
-        return float(x)
-    except Exception:
-        return None
-
-
-def clamp(x: float, lo: float, hi: float) -> float:
-    return max(lo, min(hi, x))
-
-
-def parse_dt(s: Any) -> Optional[datetime]:
-    if s is None:
-        return None
-    try:
-        ss = str(s).strip()
-        if not ss:
-            return None
-        dt = datetime.fromisoformat(ss.replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt.astimezone(timezone.utc)
-    except Exception:
-        return None
-
-
-def build_confidence_breakdown(df: pd.DataFrame, whitelist_domains: List[str]) -> Tuple[int, dict]:
-    if df.empty:
-        return 0, {"reason": "no evidence rows"}
-
-    n = len(df)
-
-    url_cov = float(df["url"].notna().mean()) if "url" in df.columns else 0.0
-
-    sources = df["source"].fillna("unknown").astype(str).str.lower() if "source" in df.columns else pd.Series(["unknown"] * n)
-    sc = Counter(sources)
-    top_source, top_count = sc.most_common(1)[0]
-    top_share = top_count / n
-
-    domains = df["url"].fillna("").apply(domain_of) if "url" in df.columns else pd.Series([""] * n)
-    uniq_domains = len(set([d for d in domains.tolist() if d]))
-    domain_diversity = uniq_domains / max(1, n)
-
-    sec_share = float((sources == "sec").mean())
-
-    wl = set([d.strip().lower() for d in whitelist_domains if d.strip()])
-    wl_hits = domains.apply(lambda d: 1 if d in wl else 0) if wl else pd.Series([0] * n)
-    wl_share = float(wl_hits.mean())
-
-    if "published_at" in df.columns:
-        dts = df["published_at"].apply(parse_dt)
-        cutoff = datetime.now(timezone.utc) - timedelta(days=7)
-        recent_share = float(dts.apply(lambda x: 1 if (x and x >= cutoff) else 0).mean())
-    else:
-        recent_share = 0.0
-
-    if "title" in df.columns:
-        titles = df["title"].fillna("").astype(str).str.lower().str.strip()
-        dup_ratio = 1.0 - (titles.nunique() / max(1, n))
-    else:
-        dup_ratio = 0.0
-
-    score = 100.0
-
-    score -= (1.0 - url_cov) * 60.0
-
-    if top_share > 0.70:
-        score -= (top_share - 0.70) * 120.0
-
-    if uniq_domains < 10:
-        score -= 8.0
-    score += clamp(domain_diversity * 40.0, 0.0, 12.0)
-
-    score += clamp(sec_share * 60.0, 0.0, 18.0)
-
-    score += clamp(wl_share * 80.0, 0.0, 20.0)
-
-    score += clamp(recent_share * 20.0, 0.0, 8.0)
-
-    score -= clamp(dup_ratio * 25.0, 0.0, 10.0)
-
-    score = clamp(score, 0.0, 100.0)
-
-    breakdown = {
-        "rows": n,
-        "url_coverage": round(url_cov, 3),
-        "top_source": top_source,
-        "top_source_share": round(top_share, 3),
-        "unique_domains": uniq_domains,
-        "sec_share": round(sec_share, 3),
-        "whitelist_share": round(wl_share, 3),
-        "recent_share_7d": round(recent_share, 3),
-        "dup_ratio_titles": round(dup_ratio, 3),
-        "notes": [
-            "Confidence is evidence-quality + cross-checkability (not stock performance).",
-            "Single-source dominance lowers confidence. SEC + reputable domains raise it.",
-        ],
-    }
-    return int(round(score)), breakdown
-
-
-def pick_must_click(df: pd.DataFrame, k: int = 10) -> List[dict]:
-    if df.empty:
-        return []
-
-    d = df.copy()
-
-    if "impact_score" not in d.columns:
-        d["impact_score"] = None
-    d["impact_score_num"] = d["impact_score"].apply(coerce_float)
-
-    if "published_at" in d.columns:
-        d["dt"] = d["published_at"].apply(parse_dt)
-    else:
-        d["dt"] = None
-
-    d["rank_key"] = d["impact_score_num"].apply(lambda x: x if x is not None else 0.0)
-
-    d = d.sort_values(by=["rank_key", "dt"], ascending=[True, False], na_position="last")
-
+def load_whitelist() -> List[str]:
+    p = EXPORT / "source_whitelist.csv"
+    if not p.exists():
+        return sorted(TOP_TIER_DEFAULT)
     out = []
-    for _, r in d.head(k).iterrows():
-        out.append({
-            "published_at": r.get("published_at"),
-            "title": r.get("title"),
-            "source": r.get("source"),
-            "risk_tag": r.get("risk_tag"),
-            "impact_score": r.get("impact_score"),
-            "url": r.get("url"),
-        })
-    return out
+    with p.open("r", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            s = (row.get("source") or "").strip()
+            if s:
+                out.append(s.lower())
+    return out or sorted(TOP_TIER_DEFAULT)
 
+def herfindahl(shares: List[float]) -> float:
+    # Concentration index: sum(s^2). Higher = more concentrated.
+    return sum((s*s) for s in shares)
 
-def write_clickpack_html(ticker: str, must_click: List[dict], path: Path) -> None:
+def score_confidence(source_counts: Dict[str,int], url_cov: float, whitelist_hit_ratio: float, has_sec: bool, n: int) -> Tuple[int, Dict[str, Any]]:
+    # Start base
+    score = 50
+
+    # URL coverage (0-1)
+    if url_cov >= 0.95: score += 10
+    elif url_cov >= 0.80: score += 5
+    else: score -= 10
+
+    # Source diversification
+    total = max(1, sum(source_counts.values()))
+    shares = [c/total for c in source_counts.values()]
+    hhi = herfindahl(shares)  # 1.0 if 100% one source
+    # Penalize high concentration
+    if hhi >= 0.85: score -= 18
+    elif hhi >= 0.60: score -= 10
+    elif hhi >= 0.40: score -= 4
+    else: score += 6
+
+    # Whitelist hit ratio
+    if whitelist_hit_ratio >= 0.25: score += 10
+    elif whitelist_hit_ratio >= 0.10: score += 6
+    elif whitelist_hit_ratio >= 0.03: score += 2
+    else: score -= 4
+
+    # SEC presence helps veracity even if not “news”
+    if has_sec: score += 6
+
+    # Enough data?
+    if n >= 300: score += 4
+    elif n >= 100: score += 2
+    elif n < 20: score -= 8
+
+    score = max(0, min(100, score))
+    details = {"hhi": round(hhi, 3)}
+    return score, details
+
+def build_clickpack_html(ticker: str, df: pd.DataFrame, out_path: Path) -> None:
+    # Simple, readable HTML with a table of top items
     rows = []
-    for it in must_click:
-        title = (it.get("title") or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-        url = it.get("url") or ""
-        src = it.get("source") or ""
-        tag = it.get("risk_tag") or ""
-        imp = it.get("impact_score")
-        dt = it.get("published_at") or ""
-        link = f'<a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>' if url else title
-        rows.append(f"<tr><td>{dt}</td><td>{src}</td><td>{tag}</td><td>{imp}</td><td>{link}</td></tr>")
+    for _, r in df.iterrows():
+        title = str(r.get("title","(no title)"))
+        url = str(r.get("url",""))
+        src = str(r.get("source",""))
+        tag = str(r.get("risk_tag",""))
+        impact = r.get("impact_score","")
+        published = str(r.get("published_at",""))
+        link = f'<a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>' if url and url != "nan" else title
+        rows.append(f"""
+        <tr>
+          <td style="white-space:nowrap;">{published[:10]}</td>
+          <td>{link}<div style="font-size:12px;opacity:.75">{src} • {tag} • impact {impact}</div></td>
+        </tr>
+        """)
 
     html = f"""<!doctype html>
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>{ticker} — News Click Pack</title>
+<title>News Clickpack — {ticker}</title>
 <style>
-body {{ font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial, sans-serif; padding: 24px; }}
-h1 {{ margin-bottom: 6px; }}
-small {{ color: #666; }}
-table {{ border-collapse: collapse; width: 100%; margin-top: 12px; }}
-th, td {{ border: 1px solid #ddd; padding: 8px; vertical-align: top; }}
-th {{ background: #f5f5f5; text-align: left; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Arial; padding: 16px; }}
+h1 {{ margin: 0 0 8px 0; }}
+p {{ margin: 6px 0 12px 0; opacity: .8; }}
+table {{ width: 100%; border-collapse: collapse; }}
+td {{ border-bottom: 1px solid #eee; padding: 10px 6px; vertical-align: top; }}
+a {{ text-decoration: none; }}
+a:hover {{ text-decoration: underline; }}
+.badge {{ display:inline-block; padding:2px 6px; border-radius:10px; font-size:12px; background:#f3f3f3; }}
 </style>
 </head>
 <body>
-<h1>{ticker} — Click Pack (Top headlines to verify)</h1>
-<small>Generated: {utc_now_iso()} — Click the most negative headlines first. If the same risk repeats, treat it more seriously.</small>
-
-<h2>Top {len(must_click)} must-click items</h2>
+<h1>News Clickpack — {ticker}</h1>
+<p><span class="badge">Click top negatives first</span> • Generated {utc_now()}</p>
 <table>
-<tr><th>Published</th><th>Source</th><th>Risk</th><th>Impact</th><th>Headline</th></tr>
 {''.join(rows)}
 </table>
-
-<p style="margin-top:18px;color:#666;">
-Tip: If most items come from one source, confirm with at least one other outlet or SEC filings before trusting the story.
-</p>
 </body>
-</html>
-"""
-    path.write_text(html, encoding="utf-8")
+</html>"""
+    out_path.write_text(html, encoding="utf-8")
 
+def main(ticker: str):
+    ticker = ticker.upper()
+    news = read_csv(DATA / "news_unified.csv")
+    if news.empty:
+        raise FileNotFoundError("Missing data/processed/news_unified.csv — run run_uber_update.py first")
 
-def main():
-    ticker = DEFAULT_TICKER
+    # Filter ticker
+    if "ticker" in news.columns:
+        news = news[news["ticker"].astype(str).str.upper() == ticker].copy()
 
-    unified = safe_read_csv(DATA_PROCESSED / "news_unified.csv")
-    if unified.empty:
-        print("No news_unified.csv found or it's empty.")
-        return
+    if news.empty:
+        raise ValueError(f"No news rows found for {ticker} in news_unified.csv")
 
-    if "ticker" in unified.columns:
-        df = unified[unified["ticker"].astype(str).str.upper() == ticker.upper()].copy()
+    # normalize
+    for c in ["source","title","url","risk_tag"]:
+        if c not in news.columns:
+            news[c] = ""
+
+    # URL coverage
+    urls = news["url"].astype(str)
+    url_cov = float((urls.str.startswith("http")).mean())
+
+    # Source counts
+    source_counts = news["source"].astype(str).str.lower().value_counts().to_dict()
+
+    # whitelist hits (based on source field)
+    wl = set(load_whitelist())
+    src_series = news["source"].astype(str).str.lower()
+    whitelist_hits = float(src_series.isin(wl).mean())
+
+    has_sec = ("sec" in source_counts) and (source_counts.get("sec",0) > 0)
+
+    # Build “must click”: take the most negative by impact_score if present
+    if "impact_score" in news.columns:
+        n2 = news.copy()
+        n2["impact_num"] = pd.to_numeric(n2["impact_score"], errors="coerce")
+        n2 = n2.sort_values("impact_num", ascending=True)
+        must = n2.head(12)
     else:
-        df = unified.copy()
+        must = news.head(12)
 
-    whitelist = safe_read_whitelist(EXPORT / "source_whitelist.csv")
+    confidence, details = score_confidence(source_counts, url_cov, whitelist_hits, has_sec, len(news))
 
-    confidence, breakdown = build_confidence_breakdown(df, whitelist)
-    must_click = pick_must_click(df, k=10)
-
-    out = {
+    payload = {
         "ticker": ticker,
-        "generated_utc": utc_now_iso(),
-        "confidence_score": confidence,
-        "breakdown": breakdown,
-        "must_click": must_click,
+        "generated_utc": utc_now(),
+        "rows": int(len(news)),
+        "url_coverage": round(url_cov, 3),
+        "source_counts": source_counts,
+        "whitelist_hit_ratio": round(whitelist_hits, 3),
+        "has_sec": bool(has_sec),
+        "confidence_score": int(confidence),
+        "confidence_details": details,
+        "must_click": [
+            {
+                "published_at": str(r.get("published_at","")),
+                "title": str(r.get("title","")),
+                "source": str(r.get("source","")),
+                "url": str(r.get("url","")),
+                "risk_tag": str(r.get("risk_tag","")),
+                "impact_score": r.get("impact_score",""),
+            }
+            for _, r in must.iterrows()
+        ],
     }
 
-    out_path = OUTPUTS / f"veracity_{ticker}.json"
-    out_path.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    (OUT / f"veracity_{ticker}.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
-    html_path = OUTPUTS / f"news_clickpack_{ticker}.html"
-    write_clickpack_html(ticker, must_click, html_path)
+    # Clickpack HTML
+    clickpack = OUT / f"news_clickpack_{ticker}.html"
+    # Show “must click” first + then rest (optional)
+    click_df = pd.concat([must, news]).drop_duplicates(subset=["url","title"], keep="first")
+    build_clickpack_html(ticker, click_df.head(250), clickpack)
 
     print("DONE ✅ Veracity pack created:")
-    print(f"- {out_path}")
-    print(f"- {html_path}")
-
+    print(f"- {OUT / f'veracity_{ticker}.json'}")
+    print(f"- {clickpack}")
 
 if __name__ == "__main__":
-    main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ticker", default="UBER")
+    args = ap.parse_args()
+    main(args.ticker)

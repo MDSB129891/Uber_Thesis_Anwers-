@@ -1,0 +1,26 @@
+{
+  "mode": "hybrid",
+
+  "ticker": "TSLA",
+  "peers": ["GM", "F"],
+
+  "thesis": {
+    "variant": "base",
+    "file": null
+  },
+
+  "news": {
+    "lookback_days": 30,
+    "max_records_per_source": 200
+  },
+
+  "trust": {
+    "min_confirmations": 2,
+    "credibility_threshold": 1.5
+  },
+
+  "stormbreaker": {
+    "enable_news_cleanup": true,
+    "enable_claim_evidence": true
+  }
+}

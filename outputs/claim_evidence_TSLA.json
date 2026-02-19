@@ -1,0 +1,980 @@
+{
+  "as_of": "2026-02-19T01:10:52+00:00",
+  "ticker": "TSLA",
+  "thesis": "TSLA: Base case \u2014 growth + cash generation supports the thesis",
+  "thesis_file": "theses/TSLA_thesis_base.json",
+  "results": [
+    {
+      "claim": {
+        "id": "rev_growth",
+        "statement": "Revenue is still growing at a healthy pace",
+        "metric": "latest_revenue_yoy_pct",
+        "operator": ">=",
+        "threshold": 11.0,
+        "weight": 2
+      },
+      "status": "PASS",
+      "actual": 18.27959434262585,
+      "meaning": "How fast sales are growing compared to last year (higher usually = more demand).",
+      "good": "Often > 10% is considered strong growth (but depends on company maturity).",
+      "bad": "Negative means sales are shrinking.",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "fcf_positive",
+        "statement": "Free cash flow is positive (business generates real cash)",
+        "metric": "latest_free_cash_flow",
+        "operator": ">",
+        "threshold": 0,
+        "weight": 3
+      },
+      "status": "PASS",
+      "actual": 9763000000.0,
+      "meaning": "Cash left over after paying business expenses and investments. This is the money a business can use to pay debt, buy back stock, or just survive.",
+      "good": "Positive and growing is generally good.",
+      "bad": "Negative means the company is burning cash.",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "fcf_margin",
+        "statement": "Free cash flow margin is solid (company converts sales into cash)",
+        "metric": "latest_fcf_margin_pct",
+        "operator": ">=",
+        "threshold": 11.3,
+        "weight": 2
+      },
+      "status": "PASS",
+      "actual": 18.768864025222523,
+      "meaning": "How much cash profit the company keeps per $1 of revenue (FCF \u00f7 revenue).",
+      "good": "Higher is better; 10%+ is often strong for many businesses.",
+      "bad": "Near 0% or negative means weak cash conversion.",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "valuation_fcf_yield",
+        "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
+        "metric": "fcf_yield_pct",
+        "operator": ">=",
+        "threshold": 3.0,
+        "weight": 2
+      },
+      "status": "UNKNOWN",
+      "actual": null,
+      "meaning": "How much free cash flow you get for the price you pay (FCF \u00f7 market cap). Like an earnings yield but using real cash.",
+      "good": "Higher is better; 3\u20138% can be attractive, depending on growth/risk.",
+      "bad": "Very low can mean expensive valuation (or reinvestment phase).",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "news_shock_ok",
+        "statement": "Recent news shock is not severe (not a headline crisis)",
+        "metric": "news_shock_30d",
+        "operator": ">=",
+        "threshold": -25.0,
+        "weight": 1
+      },
+      "status": "PASS",
+      "actual": -25,
+      "meaning": "A proxy score for how 'negative' recent news has been over 30 days. More negative = more bad headlines.",
+      "good": "Closer to 0 is calmer. Mild negatives are normal.",
+      "bad": "Very negative suggests a real headline storm or escalating issues.",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "insurance_not_spiking",
+        "statement": "Insurance risk is not spiking recently",
+        "metric": "risk_insurance_neg_30d",
+        "operator": "<=",
+        "threshold": 3,
+        "weight": 1
+      },
+      "status": "UNKNOWN",
+      "actual": null,
+      "meaning": "This is a numeric checkpoint used to test the thesis claim.",
+      "good": "Higher/lower being good depends on the claim\u2019s direction.",
+      "bad": "If it moves against the claim direction, the thesis weakens.",
+      "tag": "INSURANCE",
+      "bull_evidence": [
+        {
+          "published_at": "2026-02-17T21:33:59+00:00",
+          "title": "Stock Market Today: Dow, Nasdaq Eke Out Gains; Gold, Silver Names Slide (Live Coverage)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=4787f0990a31993d97404bc59edff9487b52ccf20205a4417f9017483bf2dc88",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T19:42:56+00:00",
+          "title": "Stock Market Today: Nasdaq, Dow Climb; Airline Name Flies Higher (Live Coverage)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=510540d76afe5fbc99cfa0c2425b3decc0065a668ee63e23d4c9ec465218b5e2",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T19:10:08+00:00",
+          "title": "Tesla: Time To Ditch The 'Someday Soon' Premium",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=49baeed6953973567a1027b7a623fe040040faf9c95772258209eec5cd3439a6",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T17:57:08+00:00",
+          "title": "Tesla Energy Is A Double-Edged Sword For The Autonomy Premium",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=3963579600e0ce3b203b1366cfddc9ae83a7e79abc261c9e04c4ccfe16f59bbf",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-02-17T21:33:59+00:00",
+          "title": "Stock Market Today: Dow, Nasdaq Eke Out Gains; Gold, Silver Names Slide (Live Coverage)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=4787f0990a31993d97404bc59edff9487b52ccf20205a4417f9017483bf2dc88",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T19:42:56+00:00",
+          "title": "Stock Market Today: Nasdaq, Dow Climb; Airline Name Flies Higher (Live Coverage)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=510540d76afe5fbc99cfa0c2425b3decc0065a668ee63e23d4c9ec465218b5e2",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T19:10:08+00:00",
+          "title": "Tesla: Time To Ditch The 'Someday Soon' Premium",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=49baeed6953973567a1027b7a623fe040040faf9c95772258209eec5cd3439a6",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T17:57:08+00:00",
+          "title": "Tesla Energy Is A Double-Edged Sword For The Autonomy Premium",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=3963579600e0ce3b203b1366cfddc9ae83a7e79abc261c9e04c4ccfe16f59bbf",
+          "risk_tag": "INSURANCE",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "regulatory_not_spiking",
+        "statement": "Regulatory risk is not spiking recently",
+        "metric": "risk_regulatory_neg_30d",
+        "operator": "<=",
+        "threshold": 5,
+        "weight": 1
+      },
+      "status": "PASS",
+      "actual": 5,
+      "meaning": "This is a numeric checkpoint used to test the thesis claim.",
+      "good": "Higher/lower being good depends on the claim\u2019s direction.",
+      "bad": "If it moves against the claim direction, the thesis weakens.",
+      "tag": "REGULATORY",
+      "bull_evidence": [
+        {
+          "published_at": "2026-02-18T19:43:55+00:00",
+          "title": "Tesla Avoids 30-Day California Sales Suspension After Compliance",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=cede59a9d06850a0a6cb54d5328770aec0d2f73b573ae9f59d4b1cb8bc8b2264",
+          "risk_tag": "REGULATORY",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T06:36:14+00:00",
+          "title": "Tesla dodges California license suspension after dropping misleading 'autopilot' marketing terms",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=c93d5ad7378e5acbb7c687cf52ae23a9474cd32933c2e4976c49233c809941e7",
+          "risk_tag": "REGULATORY",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T03:28:21+00:00",
+          "title": "Tesla Avoids 30-Day California Dealer And Manufacturer License Suspension By Dropping Misleading Autopilot Term From Electric Vehicle Marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=63567f28e1c58b4417e0b03725938a7e663b3e439a5e312cbe501cfc4961595a",
+          "risk_tag": "REGULATORY",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T03:04:22+00:00",
+          "title": "Tesla Drops 'Autopilot' Term, Avoids 30-Day California License Suspension",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=a6cd3f1af5eb33cdfff95a026a5db267338b1f83251d06bbe2ccf102aa564303",
+          "risk_tag": "REGULATORY",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T22:47:00+00:00",
+          "title": "Bank of America resets Nvidia stock forecast",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=0fea271ede1e2ce0e08ca72093403530cd26458c076a62f7d75eaad4e354adee",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-13T15:06:20+00:00",
+          "title": "Rivian: Buy or Hold? Deutsche Bank turns bullish, UBS cautious",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=659c1826e3d5a6d6648e98adefd0921f6695b1c388e3f6d4a0cc3282e8a5a65e",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "labor_not_spiking",
+        "statement": "Labor risk is not spiking recently",
+        "metric": "risk_labor_neg_30d",
+        "operator": "<=",
+        "threshold": 3,
+        "weight": 1
+      },
+      "status": "PASS",
+      "actual": 2,
+      "meaning": "This is a numeric checkpoint used to test the thesis claim.",
+      "good": "Higher/lower being good depends on the claim\u2019s direction.",
+      "bad": "If it moves against the claim direction, the thesis weakens.",
+      "tag": "LABOR",
+      "bull_evidence": [
+        {
+          "published_at": "2026-02-18T12:34:10+00:00",
+          "title": "Nvidia, Tesla Collaborator Looks To Trigger A Breakout",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=4d7fee72b6c0b147260befa6d9801b309dea94047a1081dff15a474db0de9051",
+          "risk_tag": "LABOR",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-15T10:08:56+00:00",
+          "title": "Volkswagen's EV Lead And Tariff Break Reshape Valuation Debate",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=e8099e4e2b9dacafc9c6d578178fb2c7b14c3e55382c957e4fa260aa6a2b44a6",
+          "risk_tag": "LABOR",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T11:01:04+00:00",
+          "title": "Tesla Fosters Toxic Work Environment at German Plant, Union Says",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=a96041a45f4228baaccc7f752dd89d9a4cbe905ec214c34668ef2c8d7cb5a39b",
+          "risk_tag": "LABOR",
+          "impact_score": -2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T12:19:29+00:00",
+          "title": "'German union files defamation complaint against Tesla factory manager' - Reuters",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=2a9542816c6e8c42b6830bb047e72f494a828ef571de65008f918ada41bc4e94",
+          "risk_tag": "LABOR",
+          "impact_score": -2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-02-18T11:01:04+00:00",
+          "title": "Tesla Fosters Toxic Work Environment at German Plant, Union Says",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=a96041a45f4228baaccc7f752dd89d9a4cbe905ec214c34668ef2c8d7cb5a39b",
+          "risk_tag": "LABOR",
+          "impact_score": -2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-17T12:19:29+00:00",
+          "title": "'German union files defamation complaint against Tesla factory manager' - Reuters",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=2a9542816c6e8c42b6830bb047e72f494a828ef571de65008f918ada41bc4e94",
+          "risk_tag": "LABOR",
+          "impact_score": -2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:34:10+00:00",
+          "title": "Nvidia, Tesla Collaborator Looks To Trigger A Breakout",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=4d7fee72b6c0b147260befa6d9801b309dea94047a1081dff15a474db0de9051",
+          "risk_tag": "LABOR",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-15T10:08:56+00:00",
+          "title": "Volkswagen's EV Lead And Tariff Break Reshape Valuation Debate",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=e8099e4e2b9dacafc9c6d578178fb2c7b14c3e55382c957e4fa260aa6a2b44a6",
+          "risk_tag": "LABOR",
+          "impact_score": 0,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    },
+    {
+      "claim": {
+        "id": "balance_net_debt_to_fcf",
+        "statement": "Debt burden is manageable (net debt <= ~3.0 years of free cash flow)",
+        "metric": "latest_net_debt_to_fcf",
+        "operator": "<=",
+        "threshold": 3.0,
+        "weight": 1
+      },
+      "status": "UNKNOWN",
+      "actual": null,
+      "meaning": "This is a numeric checkpoint used to test the thesis claim.",
+      "good": "Higher/lower being good depends on the claim\u2019s direction.",
+      "bad": "If it moves against the claim direction, the thesis weakens.",
+      "tag": null,
+      "bull_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:37:24+00:00",
+          "title": "Electric Vehicles Update - Battery Market Growth Driven By Innovation And Partnerships",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=53eea8e7e1b2913dedf5c316dde89e882d3ca7009ed7891190518ac572d883b7",
+          "risk_tag": "COMPETITION",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T12:01:02+00:00",
+          "title": "Tesla's Renaissance Has Come (Rating Upgrade)",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=97f2fa9ebffc4c51e1765f1939a7dee98313a4f32bcd59d00dc9c1caebad498b",
+          "risk_tag": "OTHER",
+          "impact_score": 2,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ],
+      "bear_evidence": [
+        {
+          "published_at": "2026-01-29T00:00:00+00:00",
+          "title": "TSLA SEC filing: 10-K (2026-01-29)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-01-28T00:00:00+00:00",
+          "title": "TSLA SEC filing: 8-K (2026-01-28)",
+          "source": "sec",
+          "domain": "www.sec.gov",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026003837/tsla-20260128.htm",
+          "risk_tag": "OTHER",
+          "impact_score": 0,
+          "trust_score": 3.0,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T20:05:59+00:00",
+          "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        },
+        {
+          "published_at": "2026-02-18T14:15:51+00:00",
+          "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+          "source": "finnhub",
+          "domain": "finnhub.io",
+          "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+          "risk_tag": "REGULATORY",
+          "impact_score": -3,
+          "trust_score": 0.7,
+          "whitelisted": false
+        }
+      ]
+    }
+  ]
+}

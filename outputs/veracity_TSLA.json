@@ -1,0 +1,114 @@
+{
+  "ticker": "TSLA",
+  "generated_utc": "2026-02-19 01:10 UTC",
+  "rows": 202,
+  "url_coverage": 1.0,
+  "source_counts": {
+    "finnhub": 200,
+    "sec": 2
+  },
+  "whitelist_hit_ratio": 0.01,
+  "has_sec": true,
+  "confidence_score": 46,
+  "confidence_details": {
+    "hhi": 0.98
+  },
+  "must_click": [
+    {
+      "published_at": "2026-02-17T22:47:00+00:00",
+      "title": "Bank of America resets Nvidia stock forecast",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=0fea271ede1e2ce0e08ca72093403530cd26458c076a62f7d75eaad4e354adee",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-13T15:06:20+00:00",
+      "title": "Rivian: Buy or Hold? Deutsche Bank turns bullish, UBS cautious",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=659c1826e3d5a6d6648e98adefd0921f6695b1c388e3f6d4a0cc3282e8a5a65e",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-15T23:01:55+00:00",
+      "title": "Tom Lee Says AI Killed Software And Job Losses Are 'Soon To Follow'",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=6bb45f53a875b1146a80168c66323f3e87acb4f2c7dfe829b892816821290e5f",
+      "risk_tag": "FINANCIAL",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-18T14:15:51+00:00",
+      "title": "Mark Cuban Explains How Luck Helped Turn Jeff Bezos And Mark Zuckerberg Into Billionaires \u2014 'Something Good Has Got to Happen'",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=d90da23f133707beb07d9b93e32424ec5abbb7a58f882ce6245a05687f980903",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-18T20:05:59+00:00",
+      "title": "Tesla avoids California sales ban by removing \u2018autopilot\u2019 from marketing",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=fa71564340ab0bcd19b33e7ec4ca8cd5c7ca9eb1181019435b08009faaf6d0eb",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-18T09:39:25+00:00",
+      "title": "Apple Decouples From Nasdaq as AI \u2018Whack-a-Mole\u2019 Grips Market",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=8867973f4fe0a13ab01cfd731a721470d0b97440267a2d0c4c134ec9397cc7a1",
+      "risk_tag": "SAFETY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-13T10:56:25+00:00",
+      "title": "'Musk's Bankers are Discussing a Plan to Wrangle xAI Debt after SpaceX Merger' - Bloomberg",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=53b80154d195d53e7ce7e67ba757d2c0e14940aeb0323c1db484449c3d832bce",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-18T11:01:04+00:00",
+      "title": "Tesla Fosters Toxic Work Environment at German Plant, Union Says",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=a96041a45f4228baaccc7f752dd89d9a4cbe905ec214c34668ef2c8d7cb5a39b",
+      "risk_tag": "LABOR",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-17T12:19:29+00:00",
+      "title": "'German union files defamation complaint against Tesla factory manager' - Reuters",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=2a9542816c6e8c42b6830bb047e72f494a828ef571de65008f918ada41bc4e94",
+      "risk_tag": "LABOR",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-15T10:08:56+00:00",
+      "title": "Volkswagen's EV Lead And Tariff Break Reshape Valuation Debate",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=e8099e4e2b9dacafc9c6d578178fb2c7b14c3e55382c957e4fa260aa6a2b44a6",
+      "risk_tag": "LABOR",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-15T08:25:00+00:00",
+      "title": "Where Will Lucid Group Stock Be in 10 Years?",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=be84510224a7dc15e5a4ef090d8e9478d71c68f1daefbe412aafea1ded48854e",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-15T05:36:11+00:00",
+      "title": "DOJ Sends Letter To Congress Listing Hundreds Of Names Mentioned In Epstein Files",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=a06a163366ab8cdaed76888cd9ac798af1546ef3d8af2c21fffc77f9b970b3ef",
+      "risk_tag": "REGULATORY",
+      "impact_score": 0
+    }
+  ]
+}
