@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ===== GALACTUS WRAPPER =====
+# Usage:
+#   ./galactus TICKER "your thesis text"
+# Example:
+#   ./galactus GM "EV expansion drives margin recovery"
+
+if [[ $# -lt 2 ]]; then
+  echo "Usage: ./galactus TICKER \"thesis text\""
+  echo "Example: ./galactus GM \"EV expansion drives margin recovery\""
+  exit 1
+fi
+
+TICKER="$(echo "$1" | tr '[:lower:]' '[:upper:]')"
+shift
+THESIS_TEXT="$*"
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT"
+
+THESIS_PATH="theses/${TICKER}_custom.json"
+
+echo "🌌 GALACTUS AI"
+echo "Ticker: $TICKER"
+echo "Thesis: $THESIS_TEXT"
+echo "Thesis file: $THESIS_PATH"
+echo
+
+# Prefer venv python if available
+PY="python3"
+if [[ -n "${VIRTUAL_ENV:-}" ]]; then
+  PY="python"
+fi
+
+# 1) Create thesis JSON (non-interactive version)
+# new_thesis.py already supports: python3 scripts/new_thesis.py TICKER "text"
+$PY scripts/new_thesis.py "$TICKER" "$THESIS_TEXT"
+
+# Safety check
+if [[ ! -f "$THESIS_PATH" ]]; then
+  echo
+  echo "❌ Expected thesis file not found: $THESIS_PATH"
+  echo "   Something is off inside scripts/new_thesis.py (it didn't write where we expect)."
+  echo "   Quick debug: ls -lh theses | tail -n 30"
+  exit 1
+fi
+
+echo
+echo "🟣 Running Galactus pipeline…"
+echo
+
+# 2) Run full pipeline
+./scripts/run_galactus.sh "$TICKER" "$THESIS_PATH"
+
+echo
+echo "🚀 Opening key outputs (if they exist)…"
+
+DASH="outputs/decision_dashboard_${TICKER}.html"
+CLICKPACK="outputs/news_clickpack_${TICKER}.html"
+CLAIMHTML="outputs/claim_evidence_${TICKER}.html"
+MEMO_DOCX="export/${TICKER}_Full_Investment_Memo.docx"
+MEMO_PDF="export/${TICKER}_Full_Investment_Memo.pdf"
+
+# macOS "open" only if file exists
+for f in "$DASH" "$CLICKPACK" "$CLAIMHTML" "$MEMO_PDF" "$MEMO_DOCX"; do
+  if [[ -f "$f" ]]; then
+    open "$f" >/dev/null 2>&1 || true
+  fi
+done
+
+echo "✅ Done. If nothing opened, it means the files weren't generated yet (or your system blocked auto-open)."

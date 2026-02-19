@@ -1,2 +1,2 @@
-TICKER=GM
-THESIS=I think GM is increasing EV production which will drive revenue and stock price higher
+TICKER=UBER
+THESIS="Uber will grow free cash flow as ride volume and pricing power improve"

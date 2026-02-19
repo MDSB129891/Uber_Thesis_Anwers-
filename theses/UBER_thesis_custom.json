@@ -1,0 +1,71 @@
+{
+  "name": "UBER: Thesis",
+  "ticker": "UBER",
+  "description": "UBER should generate cash while valuation stays reasonable; risks aren't escalating.",
+  "claims": [
+    {
+      "id": "c1",
+      "statement": "Revenue is still growing at a healthy pace",
+      "metric": "latest_revenue_yoy_pct",
+      "operator": ">=",
+      "threshold": 10.0,
+      "weight": 2
+    },
+    {
+      "id": "c2",
+      "statement": "Free cash flow is positive",
+      "metric": "latest_free_cash_flow",
+      "operator": ">",
+      "threshold": 0.0,
+      "weight": 3
+    },
+    {
+      "id": "c3",
+      "statement": "Free cash flow margin is solid",
+      "metric": "latest_fcf_margin_pct",
+      "operator": ">=",
+      "threshold": 10.0,
+      "weight": 2
+    },
+    {
+      "id": "c4",
+      "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
+      "metric": "fcf_yield_pct",
+      "operator": ">=",
+      "threshold": 3.0,
+      "weight": 2
+    },
+    {
+      "id": "c5",
+      "statement": "Recent news shock is not severe (not a headline crisis)",
+      "metric": "news_shock_30d",
+      "operator": ">=",
+      "threshold": -15.0,
+      "weight": 1
+    },
+    {
+      "id": "c6",
+      "statement": "Insurance risk is not spiking recently",
+      "metric": "risk_insurance_neg_30d",
+      "operator": "<=",
+      "threshold": 3.0,
+      "weight": 1
+    },
+    {
+      "id": "c7",
+      "statement": "Regulatory risk is not spiking recently",
+      "metric": "risk_regulatory_neg_30d",
+      "operator": "<=",
+      "threshold": 3.0,
+      "weight": 1
+    },
+    {
+      "id": "c8",
+      "statement": "Labor risk is not spiking recently",
+      "metric": "risk_labor_neg_30d",
+      "operator": "<=",
+      "threshold": 3.0,
+      "weight": 1
+    }
+  ]
+}

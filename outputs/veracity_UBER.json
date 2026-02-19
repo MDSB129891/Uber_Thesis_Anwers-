@@ -1,6 +1,6 @@
 {
   "ticker": "UBER",
-  "generated_utc": "2026-02-19 01:31 UTC",
+  "generated_utc": "2026-02-19 02:08 UTC",
   "rows": 209,
   "url_coverage": 1.0,
   "source_counts": {
@@ -15,14 +15,6 @@
   },
   "must_click": [
     {
-      "published_at": "2026-02-17T10:04:21+00:00",
-      "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7",
-      "risk_tag": "INSURANCE",
-      "impact_score": -3
-    },
-    {
       "published_at": "2026-02-09T17:03:00+00:00",
       "title": "Bank of America resets Uber stock price after earnings",
       "source": "finnhub",
@@ -31,12 +23,12 @@
       "impact_score": -3
     },
     {
-      "published_at": "2026-02-10T00:28:00+00:00",
-      "title": "Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl \"Consumer Alert\" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",
+      "published_at": "2026-02-17T10:04:21+00:00",
+      "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
       "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b",
-      "risk_tag": "SAFETY",
-      "impact_score": -2
+      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7",
+      "risk_tag": "INSURANCE",
+      "impact_score": -3
     },
     {
       "published_at": "2026-02-10T22:10:18+00:00",
@@ -53,6 +45,22 @@
       "url": "https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838",
       "risk_tag": "SAFETY",
       "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-10T00:28:00+00:00",
+      "title": "Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl \"Consumer Alert\" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b",
+      "risk_tag": "SAFETY",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-09T10:56:00+00:00",
+      "title": "Uber prepares for World Cup with payment kiosks for international tourists",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=25d7026005357ff2bd1a733bd1611cc0f05493488b483d10e00ad37d2dfcd967",
+      "risk_tag": "OTHER",
+      "impact_score": 0
     },
     {
       "published_at": "2026-02-09T10:00:00+00:00",
@@ -99,14 +107,6 @@
       "title": "UBER SEC filing: 8-K (2026-02-09)",
       "source": "sec",
       "url": "https://www.sec.gov/Archives/edgar/data/1543151/000155278126000043/e26049_uber-8k.htm",
-      "risk_tag": "OTHER",
-      "impact_score": 0
-    },
-    {
-      "published_at": "2026-02-08T20:05:00+00:00",
-      "title": "Dara Khosrowshahi Just Delivered Incredible News for Uber Stock Investors",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=237cda7c2af5eaa3c7d46c14400961f0cd75ae98e31452285ead4c7b35a5c265",
       "risk_tag": "OTHER",
       "impact_score": 0
     }

@@ -1,69 +1,69 @@
 <!doctype html>
-<html><head><meta charset='utf-8'/>
+<html><head><meta charset="utf-8"/>
 <title>Decision Dashboard — GM</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;max-width:980px;margin:24px auto;padding:0 12px;}
-code{background:#f3f3f3;padding:2px 6px;border-radius:6px;}
-.card{border:1px solid #ddd;border-radius:16px;padding:14px 16px;margin:12px 0;}
-h1{margin:0 0 6px 0;}
-.warn{background:#fff3cd;border:1px solid #ffe69c;}
-</style></head><body>
-<h1>📊 Decision Dashboard — GM</h1>
-<p><b>Generated:</b> 2026-02-19 01:13 UTC</p>
-<div class='card warn'>
-<h2>⚠️ Ticker mismatch warning</h2>
-<p>Your <code>outputs/decision_summary.json</code> says ticker <b>TSLA</b>, but you asked for <b>GM</b>.</p>
-<p>This usually means the engine update step didn’t run for the requested ticker (or wrote over the shared summary).</p>
+body { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial; padding:16px; max-width: 980px; margin: 0 auto; }
+h1 { margin:0; }
+.small { opacity:.75; font-size:13px; }
+.card { border:1px solid #eee; border-radius:14px; padding:14px; margin: 14px 0; }
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#f3f3f3; font-size:12px; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul { margin: 8px 0 0 18px; }
+</style>
+</head>
+<body>
+<h1>Decision Dashboard — GM</h1>
+<div class="small">Generated 2026-02-19 02:12 UTC</div>
+
+<div class="card">
+  <div class="badge">TL;DR</div>
+  <h2 style="margin:10px 0 6px 0;">Model: AVOID (score 52/100) • Confidence: 46/100</h2>
+  <div class="small">Confidence reflects evidence quality (source diversity + URL coverage + whitelist hits).</div>
 </div>
-<div class='card'>
-<h2>1) Quick summary</h2>
-<p><b>Model rating:</b> AVOID &nbsp; <b>Score:</b> 37/100</p>
-<p><b>Bucket scores:</b></p><ul>
-<li>cash_level: <b>15</b></li>
-<li>valuation: <b>5</b></li>
-<li>growth: <b>9</b></li>
-<li>quality: <b>6</b></li>
-<li>balance_risk: <b>2</b></li>
-</ul>
-<p><b>Red flags:</b></p><ul>
-<li>TTM revenue declining YoY</li>
-<li>Frequent LABOR/INSURANCE/REGULATORY negatives (30d)</li>
-<li>News: 9 negative headlines in last 7d (shock -25)</li>
-</ul>
+
+<div class="grid">
+  <div class="card">
+    <div class="badge">Open</div>
+    <ul>
+      <li><a href="news_clickpack_GM.html">News Clickpack (verify sources)</a></li>
+      <li><a href="GM_Full_Investment_Memo.md">Full Memo (Markdown)</a></li>
+      <li><a href="../export/GM_Full_Investment_Memo.docx">Full Memo (Word)</a></li>
+      <li><a href="../export/GM_Full_Investment_Memo.pdf">Full Memo (PDF)</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="badge">Bucket scores</div>
+    <ul>
+      <li>cash_level: 21</li><li>valuation: 17</li><li>growth: 0</li><li>quality: 6</li><li>balance_risk: 8</li>
+    </ul>
+  </div>
 </div>
-<div class='card'>
-<h2>2) What to open (in order)</h2>
-<ol>
-<li><b>Full memo PDF</b> — <code>export/GM_Full_Investment_Memo.pdf</code></li>
-<li><b>Claim evidence</b> — <code>outputs/claim_evidence_GM.html</code></li>
-<li><b>Clickpack</b> — <code>outputs/news_clickpack_GM.html</code></li>
-</ol>
+
+<div class="card">
+  <div class="badge">ALERTS (thesis breakers)</div>
+  <ul>
+    <li><b>MED</b> — News shock is severe (<-20). Risks may be escalating.</li>
+  </ul>
 </div>
-<div class='card'>
-<h2>3) All artifacts</h2>
-<ul>
-<li>⚠️ <a href="../export/GM_Full_Investment_Memo.pdf">Full memo (PDF)</a> <code>export/GM_Full_Investment_Memo.pdf</code></li>
-<li>⚠️ <a href="../export/GM_Full_Investment_Memo.docx">Full memo (DOCX)</a> <code>export/GM_Full_Investment_Memo.docx</code></li>
-<li>⚠️ <a href="../outputs/decision_dashboard_GM.html">One-page dashboard (this file)</a> <code>outputs/decision_dashboard_GM.html</code></li>
-<li>⚠️ <a href="../outputs/news_clickpack_GM.html">Clickpack (news links)</a> <code>outputs/news_clickpack_GM.html</code></li>
-<li>⚠️ <a href="../outputs/claim_evidence_GM.html">Claim evidence (thesis stress test)</a> <code>outputs/claim_evidence_GM.html</code></li>
-<li>⚠️ <a href="../outputs/veracity_GM.json">Veracity / confidence JSON</a> <code>outputs/veracity_GM.json</code></li>
-<li>⚠️ <a href="../outputs/alerts_GM.json">Alerts (red lines)</a> <code>outputs/alerts_GM.json</code></li>
-<li>⚠️ <a href="../outputs/hybrid_signals_GM.json">Hybrid signals JSON</a> <code>outputs/hybrid_signals_GM.json</code></li>
-<li>✅ <a href="../data/processed/news_unified.csv">Unified news CSV</a> <code>data/processed/news_unified.csv</code></li>
-<li>✅ <a href="../data/processed/news_unified_clean.csv">Clean news CSV</a> <code>data/processed/news_unified_clean.csv</code></li>
-<li>✅ <a href="../data/processed/news_risk_dashboard.csv">News risk dashboard CSV</a> <code>data/processed/news_risk_dashboard.csv</code></li>
-<li>✅ <a href="../data/processed/fundamentals_annual_history.csv">Fundamentals annual history CSV</a> <code>data/processed/fundamentals_annual_history.csv</code></li>
-<li>✅ <a href="../data/processed/fundamentals_quarterly.csv">Fundamentals quarterly CSV</a> <code>data/processed/fundamentals_quarterly.csv</code></li>
-<li>✅ <a href="../data/processed/comps_snapshot.csv">Comps snapshot CSV</a> <code>data/processed/comps_snapshot.csv</code></li>
-</ul></div>
-<div class='card'>
-<h2>3) Plain-English cheat sheet</h2>
-<ul>
-<li><b>Score</b>: 0–100 summary signal from cash/growth/valuation/quality/risk buckets.</li>
-<li><b>Clickpack</b>: raw headlines with URLs so you can verify the model isn’t hallucinating.</li>
-<li><b>Claim evidence</b>: maps each thesis claim to supporting/contradicting headlines.</li>
-<li><b>Veracity</b>: checks if evidence is diverse and from higher-trust domains.</li>
-</ul>
+
+<div class="card">
+  <div class="badge">Click first (top negatives)</div>
+  <ul>
+    <li><a href='https://finnhub.io/api/news?id=d3cf21d936dbc04a6a41b0a2342d6dbc6dba4b363a2d113d4e0fd85b7f9d0503' target='_blank' rel='noopener noreferrer'>General Motors Company (GM) Presents at Federal Reserve Bank of Chicago's Automotive Insights Symposium Transcript</a> <span class='small'>(finnhub, REGULATORY, impact -3)</span></li><li><a href='https://finnhub.io/api/news?id=83584856f7d8ccea3165a2e6f15f71ca9ab95462a22c7162ab329cb973f7159f' target='_blank' rel='noopener noreferrer'>Lithium Americas (TSX:LAC) Is Down 17.6% After DOE, GM Reshape Thacker Pass Funding Warrants</a> <span class='small'>(finnhub, SAFETY, impact -3)</span></li><li><a href='https://finnhub.io/api/news?id=7466d134c04c4aca012c6b4e1fb3b842a474b420e5f4d1f6531d389bd6c3b8f5' target='_blank' rel='noopener noreferrer'>Minivan sales surge 21% in 2025 as millennial dads lead demand for cars offering the 'best bang for your buck'</a> <span class='small'>(finnhub, REGULATORY, impact -3)</span></li><li><a href='https://finnhub.io/api/news?id=3c05d37cfc3dc6e0a21149e1a965a40b5c4a152809bb9d559e9c6db484462b3c' target='_blank' rel='noopener noreferrer'>Top Midday Stories: Big Companies Join Trump Effort to Stockpile Rare Earths; Devon, Coterra Strike $58 Billion Merger Deal</a> <span class='small'>(finnhub, LABOR, impact -3)</span></li><li><a href='https://finnhub.io/api/news?id=6e41345e9e17b05d047a0f37402350846b4c2b5240c11937b66bea1adb607100' target='_blank' rel='noopener noreferrer'>DZ Bank is Bullish on General Motors Company (GM)</a> <span class='small'>(finnhub, REGULATORY, impact -3)</span></li><li><a href='https://finnhub.io/api/news?id=4387c6422e83fe9287564b86c5bb2f0a243bc82f79cab506b26c05e8ff491f72' target='_blank' rel='noopener noreferrer'>BYD Vs. Trump: Why Tesla, Ford And GM Are Watching This Lawsuit Closely</a> <span class='small'>(finnhub, INSURANCE, impact -3)</span></li>
+  </ul>
 </div>
+
+<div class="card">
+  <div class="badge">How to use this (novice)</div>
+  <ol>
+    <li>Read the Word memo top section (Decision Card).</li>
+    <li>Click the “Click first” items above to confirm the biggest risks are real.</li>
+    <li>If alerts triggered, treat them as “watchlist” conditions — not automatic sell signals.</li>
+    <li>If the same risk theme repeats (insurance/regulatory/labor), escalate caution.</li>
+  </ol>
+</div>
+
 </body></html>

@@ -1,8 +1,8 @@
 {
-  "as_of": "2026-02-19T02:08:31+00:00",
-  "ticker": "UBER",
-  "thesis": "UBER: Base case \u2014 growth + cash generation supports the thesis",
-  "thesis_file": "theses/UBER_thesis_base.json",
+  "as_of": "2026-02-19T02:12:55+00:00",
+  "ticker": "GM",
+  "thesis": "GM: Base case \u2014 growth + cash generation supports the thesis",
+  "thesis_file": "theses/GM_thesis_base.json",
   "results": [
     {
       "claim": {
@@ -64,7 +64,7 @@
         "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
         "metric": "fcf_yield_pct",
         "operator": ">=",
-        "threshold": 4.5,
+        "threshold": 8.0,
         "weight": 2
       },
       "status": "UNKNOWN",
@@ -82,11 +82,11 @@
         "statement": "Recent news shock is not severe (not a headline crisis)",
         "metric": "news_shock_30d",
         "operator": ">=",
-        "threshold": -12.0,
+        "threshold": -23.0,
         "weight": 1
       },
       "status": "PASS",
-      "actual": -12,
+      "actual": -23,
       "meaning": "A proxy score for how 'negative' recent news has been over 30 days. More negative = more bad headlines.",
       "good": "Closer to 0 is calmer. Mild negatives are normal.",
       "bad": "Very negative suggests a real headline storm or escalating issues.",
@@ -104,7 +104,7 @@
         "weight": 1
       },
       "status": "PASS",
-      "actual": 2,
+      "actual": 1,
       "meaning": "This is a numeric checkpoint used to test the thesis claim.",
       "good": "Higher/lower being good depends on the claim\u2019s direction.",
       "bad": "If it moves against the claim direction, the thesis weakens.",
@@ -118,11 +118,11 @@
         "statement": "Regulatory risk is not spiking recently",
         "metric": "risk_regulatory_neg_30d",
         "operator": "<=",
-        "threshold": 3,
+        "threshold": 5,
         "weight": 1
       },
       "status": "PASS",
-      "actual": 1,
+      "actual": 5,
       "meaning": "This is a numeric checkpoint used to test the thesis claim.",
       "good": "Higher/lower being good depends on the claim\u2019s direction.",
       "bad": "If it moves against the claim direction, the thesis weakens.",
@@ -139,8 +139,8 @@
         "threshold": 3,
         "weight": 1
       },
-      "status": "UNKNOWN",
-      "actual": null,
+      "status": "PASS",
+      "actual": 1,
       "meaning": "This is a numeric checkpoint used to test the thesis claim.",
       "good": "Higher/lower being good depends on the claim\u2019s direction.",
       "bad": "If it moves against the claim direction, the thesis weakens.",

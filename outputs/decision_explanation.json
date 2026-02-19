@@ -1,58 +1,50 @@
 {
-  "ticker": "UBER",
+  "ticker": "GM",
   "as_of": "2026-02-18",
-  "score": 83,
-  "rating": "BUY",
+  "score": 52,
+  "rating": "AVOID",
   "universe": [
-    "UBER",
+    "GM",
     "LYFT",
     "DASH"
   ],
   "bucket_scores": {
     "cash_level": 21,
-    "valuation": 15,
-    "growth": 16,
-    "quality": 15,
-    "balance_risk": 16
+    "valuation": 17,
+    "growth": 0,
+    "quality": 6,
+    "balance_risk": 8
   },
   "peer_ranks": {
     "fcf_yield_pct_rank": 66.66666666666666,
-    "revenue_ttm_yoy_pct_rank": 66.66666666666666,
-    "fcf_ttm_yoy_pct_rank": 66.66666666666666,
-    "fcf_margin_ttm_pct_rank": 100.0
+    "revenue_ttm_yoy_pct_rank": 33.33333333333333,
+    "fcf_ttm_yoy_pct_rank": 33.33333333333333,
+    "fcf_margin_ttm_pct_rank": 33.33333333333333
   },
   "news_summary": {
-    "neg_7d": 1,
-    "neg_30d": 5,
-    "shock_7d": -3,
+    "neg_7d": 0,
+    "neg_30d": 8,
+    "shock_7d": 0,
     "tag_counts_30d": {
-      "INSURANCE": 2,
-      "SAFETY": 2,
-      "REGULATORY": 1
+      "REGULATORY": 5,
+      "INSURANCE": 1,
+      "LABOR": 1,
+      "SAFETY": 1
     },
-    "top_negative_titles_7d": [
-      {
-        "published_at": "2026-02-17T10:04:21+00:00",
-        "risk_tag": "INSURANCE",
-        "impact_score": -3,
-        "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
-        "source": "finnhub",
-        "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7"
-      }
-    ]
+    "top_negative_titles_7d": []
   },
   "news_sentiment_proxy": {
-    "ticker": "UBER",
-    "articles_7d": 79,
-    "articles_30d": 209,
-    "neg_7d": 1,
-    "neg_30d": 5,
-    "shock_7d": -3,
-    "shock_30d": -12,
-    "pos_hits_7d": 11,
-    "neg_hits_7d": 4,
-    "proxy_score_7d": 62,
-    "proxy_score_30d": 59
+    "ticker": "GM",
+    "articles_7d": 56,
+    "articles_30d": 206,
+    "neg_7d": 0,
+    "neg_30d": 8,
+    "shock_7d": 0,
+    "shock_30d": -23,
+    "pos_hits_7d": 9,
+    "neg_hits_7d": 0,
+    "proxy_score_7d": 68,
+    "proxy_score_30d": 57
   },
   "plain_english": {
     "what_this_is": "Engine uses TTM fundamentals + peer comps + stable news risk (SEC filings + Finnhub headlines).",
@@ -63,8 +55,8 @@
     "data/processed/news_unified.csv",
     "data/processed/news_sentiment_proxy.csv",
     "data/processed/news_risk_dashboard.csv",
-    "data/processed/news_evidence_UBER.csv",
-    "outputs/news_evidence_UBER.html",
+    "data/processed/news_evidence_GM.csv",
+    "outputs/news_evidence_GM.html",
     "outputs/decision_summary.json",
     "outputs/decision_explanation.json"
   ]
