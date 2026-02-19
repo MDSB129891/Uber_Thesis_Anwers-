@@ -1,0 +1,16 @@
+{
+  "projection_years": 5,
+  "wacc_grid": [0.075, 0.085, 0.095, 0.105, 0.115],
+  "terminal_g_grid": [0.015, 0.02, 0.025, 0.03],
+  "scenarios": {
+    "bear": {"rev_cagr": 0.06, "fcf_margin": 0.05, "wacc": 0.105, "terminal_g": 0.02},
+    "base": {"rev_cagr": 0.10, "fcf_margin": 0.07, "wacc": 0.095, "terminal_g": 0.025},
+    "bull": {"rev_cagr": 0.14, "fcf_margin": 0.09, "wacc": 0.085, "terminal_g": 0.03}
+  },
+  "notes": {
+    "rev_cagr": "Revenue compound annual growth rate for 5-year projection.",
+    "fcf_margin": "Free cash flow margin applied to projected revenue.",
+    "wacc": "Discount rate (weighted average cost of capital).",
+    "terminal_g": "Terminal growth rate for Gordon Growth terminal value."
+  }
+}

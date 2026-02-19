@@ -1,0 +1,114 @@
+{
+  "ticker": "UBER",
+  "generated_utc": "2026-02-19 17:14 UTC",
+  "rows": 209,
+  "url_coverage": 1.0,
+  "source_counts": {
+    "finnhub": 199,
+    "sec": 10
+  },
+  "whitelist_hit_ratio": 0.048,
+  "has_sec": true,
+  "confidence_score": 52,
+  "confidence_details": {
+    "hhi": 0.909
+  },
+  "must_click": [
+    {
+      "published_at": "2026-02-09T17:03:00+00:00",
+      "title": "Bank of America resets Uber stock price after earnings",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=61772357fffdc75b23e68cb9e8ec768f87efec9d34433df68f6bbb124968ce12",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-17T10:04:21+00:00",
+      "title": "Getir co-founders file lawsuit against Mubadala \u2013 report",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=da027155bd31056d0cabace8b4fbe1ca104cd5b4ca6dda14fc3845dc936073e7",
+      "risk_tag": "INSURANCE",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-10T00:28:00+00:00",
+      "title": "Consumer Watchdog's Consumer Alert Challenges Uber's Misleading Super Bowl \"Consumer Alert\" TV Ad: Uber Really Wants Removal of Legal Accountability for Faulty Safety Checks",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=e8d0314a28db6d2e4ebee541d728e8e6e3d7b317a011de45ec5be7c443fdc36b",
+      "risk_tag": "SAFETY",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-10T22:10:18+00:00",
+      "title": "Uber Liability Verdict Puts Safety Data And Investor Risks In Focus",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=f10e3a67099b57552a9d829bee868929c2cc772f1f637964f1cd149e473b8a20",
+      "risk_tag": "INSURANCE",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-09T05:06:13+00:00",
+      "title": "Uber Jury Verdict Raises Fresh Questions On Safety Risks And Valuation",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=69206f4dd687e3337706f419a68506e273fd635a31ed4e305434096f75c76838",
+      "risk_tag": "SAFETY",
+      "impact_score": -2
+    },
+    {
+      "published_at": "2026-02-09T15:07:03+00:00",
+      "title": "Uber to buy delivery arm of Turkey\u2019s Getir",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=347b6f0762db2656b7088d44997f079db4ac976d6ebe184c60256b149a2c76eb",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T14:30:20+00:00",
+      "title": "What insurance do you need as a gig worker?",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=3edd120fd0286e362a411f251a73f608d34167b1df107b372ecf9aa24ddbdfe4",
+      "risk_tag": "LABOR",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T14:00:06+00:00",
+      "title": "Is Trending Stock Uber Technologies, Inc. (UBER) a Buy Now?",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=75cc44762f96028e0c4396d6a94f26ee645a0f82243c351f8227beb2324870e2",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T13:33:16+00:00",
+      "title": "Live On CNBC, Steve Weiss Announces Sold Uber Technologies",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=3e97c1c050b892ed524a99655078f36d7a67c3241696c75b237406cbe85af4e5",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T13:28:22+00:00",
+      "title": "Super Bowl Commercials 2026: Complete List Of Ads, The Companies Behind Them And Who Won Over Fans",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=7b9f3d23019478a5139bd7b8c5db3b313b951d99f63bad37b6c02dbac5c96da9",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T12:57:44+00:00",
+      "title": "Trade Tracker: Steve Weiss sells Uber and trims Netflix",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=fb1af0a6bbfc3a272ac61cfb2e7a2481cc61121c801458f45bec7c2f4bd5f5b4",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-09T11:00:18+00:00",
+      "title": "Sen. John W Hickenlooper Has Bought Up to $350K Worth Of Uber Technologies Stock: Here's What You Should Know",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=b12fc522507100e6273d4e8680d6cc41fdffdd1f8309988fbe64b6d97d3fb798",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    }
+  ]
+}

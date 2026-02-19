@@ -1,0 +1,9 @@
+
+# generated outputs
+outputs/*.html
+outputs/*.json
+outputs/*_Memo.md
+export/*.docx
+export/*.pdf
+data/processed/*.csv
+data/raw/*_raw.csv

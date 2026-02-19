@@ -32,7 +32,7 @@
       "statement": "Valuation stays reasonable even if investors get more optimistic",
       "metric": "fcf_yield_pct",
       "operator": ">=",
-      "threshold": 3.6,
+      "threshold": 3.5,
       "weight": 1
     },
     {

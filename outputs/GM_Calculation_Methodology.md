@@ -1,5 +1,5 @@
 # Calculation Methodology — GM
-*Generated: 2026-02-19 04:07 UTC*
+*Generated: 2026-02-19 16:05 UTC*
 
 ## Purpose
 This document explains how the engine calculates metrics, bucket scores, and the final rating.
@@ -42,7 +42,7 @@ Implementation reference: `scripts/run_uber_update.py`.
 
 ### Inputs Used
 - FCF TTM: $11.07B
-- FCF Yield: 14.19%
+- FCF Yield: 14.48%
 - Revenue YoY: -1.29%
 - FCF YoY: -285.18%
 - FCF Margin TTM: 5.99%
@@ -53,7 +53,7 @@ Implementation reference: `scripts/run_uber_update.py`.
 - Peer rank (FCF Margin): 33.33%
 - News neg 7d: 0
 - News shock 7d: 0
-- Core risk hits 30d (LABOR+INSURANCE+REGULATORY): 7
+- Core risk hits 30d (LABOR+INSURANCE+REGULATORY): 6
 - Proxy score 7d: 68.00
 
 ### Bucket Contributions (Reconstructed)

@@ -1,6 +1,6 @@
 {
   "ticker": "GM",
-  "generated_utc": "2026-02-19 04:07 UTC",
+  "generated_utc": "2026-02-19 16:05 UTC",
   "rows": 206,
   "url_coverage": 1.0,
   "source_counts": {
@@ -15,10 +15,26 @@
   },
   "must_click": [
     {
+      "published_at": "2026-02-10T15:49:52+00:00",
+      "title": "BYD Vs. Trump: Why Tesla, Ford And GM Are Watching This Lawsuit Closely",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=4387c6422e83fe9287564b86c5bb2f0a243bc82f79cab506b26c05e8ff491f72",
+      "risk_tag": "INSURANCE",
+      "impact_score": -3
+    },
+    {
       "published_at": "2026-02-04T18:00:50+00:00",
       "title": "General Motors Company (GM) Presents at Federal Reserve Bank of Chicago's Automotive Insights Symposium Transcript",
       "source": "finnhub",
       "url": "https://finnhub.io/api/news?id=d3cf21d936dbc04a6a41b0a2342d6dbc6dba4b363a2d113d4e0fd85b7f9d0503",
+      "risk_tag": "REGULATORY",
+      "impact_score": -3
+    },
+    {
+      "published_at": "2026-02-03T14:32:00+00:00",
+      "title": "NHTSA expands investigation into 2015 - 2017 Ford F-150s over dangerous transmission issue",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=1eceb275d4850da4a25f47e68367fe889f05b31cedda34955b2638e0fb33ec56",
       "risk_tag": "REGULATORY",
       "impact_score": -3
     },
@@ -28,14 +44,6 @@
       "source": "finnhub",
       "url": "https://finnhub.io/api/news?id=83584856f7d8ccea3165a2e6f15f71ca9ab95462a22c7162ab329cb973f7159f",
       "risk_tag": "SAFETY",
-      "impact_score": -3
-    },
-    {
-      "published_at": "2026-01-31T14:30:22+00:00",
-      "title": "Minivan sales surge 21% in 2025 as millennial dads lead demand for cars offering the 'best bang for your buck'",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=7466d134c04c4aca012c6b4e1fb3b842a474b420e5f4d1f6531d389bd6c3b8f5",
-      "risk_tag": "REGULATORY",
       "impact_score": -3
     },
     {
@@ -55,22 +63,6 @@
       "impact_score": -3
     },
     {
-      "published_at": "2026-02-10T15:49:52+00:00",
-      "title": "BYD Vs. Trump: Why Tesla, Ford And GM Are Watching This Lawsuit Closely",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=4387c6422e83fe9287564b86c5bb2f0a243bc82f79cab506b26c05e8ff491f72",
-      "risk_tag": "INSURANCE",
-      "impact_score": -3
-    },
-    {
-      "published_at": "2026-02-03T14:32:00+00:00",
-      "title": "NHTSA expands investigation into 2015 - 2017 Ford F-150s over dangerous transmission issue",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=1eceb275d4850da4a25f47e68367fe889f05b31cedda34955b2638e0fb33ec56",
-      "risk_tag": "REGULATORY",
-      "impact_score": -3
-    },
-    {
       "published_at": "2026-02-11T14:45:26+00:00",
       "title": "Odds Trump Is Forced To Refund Tariffs Drop Sharply As Supreme Court Justice Warns Of Legal Complexity",
       "source": "finnhub",
@@ -79,35 +71,43 @@
       "impact_score": -2
     },
     {
-      "published_at": "2026-02-06T08:07:26+00:00",
-      "title": "General Motors CFO Flags $3\u2013$4B Tariff Hit, Margin Rebound and EV Reset at Conference",
+      "published_at": "2026-02-06T09:37:02+00:00",
+      "title": "Stellantis shares plunge after taking \u20ac22bn charge on EV push",
       "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=95cb085c3bd3f3b5392a4b3d43d83b20a309cf1f09eb6af101c9600a94b408fb",
-      "risk_tag": "FINANCIAL",
-      "impact_score": 0
-    },
-    {
-      "published_at": "2026-02-06T03:07:43+00:00",
-      "title": "Assessing General Motors (GM) Valuation After A Strong Year Of Shareholder Returns",
-      "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=fe7390d09112b553620e4f7aafa52cc3aa993984c63bc08f691c2f24da380792",
+      "url": "https://finnhub.io/api/news?id=975a744d6fa094c9f0bcc817f7aee529149b6309c4460a9639eef09171d7a0bf",
       "risk_tag": "OTHER",
       "impact_score": 0
     },
     {
-      "published_at": "2026-02-05T21:38:12+00:00",
-      "title": "EV Company News For The Month Of January 2026",
+      "published_at": "2026-02-06T09:19:34+00:00",
+      "title": "How America\u2019s EV retreat is increasing China's control of global markets",
       "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=a42293abbb5ca9480ac60835b65e44a0f13b9d29854ec30f52bee56091313825",
+      "url": "https://finnhub.io/api/news?id=09063765fec3e6e37198f0b71f9411ba872f4aef2d3b987e11afe91ed7ceec6d",
       "risk_tag": "OTHER",
       "impact_score": 0
     },
     {
-      "published_at": "2026-02-05T16:43:00+00:00",
-      "title": "General Motors Co. stock underperforms Thursday when compared to competitors",
+      "published_at": "2026-02-06T09:16:00+00:00",
+      "title": "Jeep Maker Stellantis Books $26 Billion Charges in Strategy Reset",
       "source": "finnhub",
-      "url": "https://finnhub.io/api/news?id=b44c285401b2cd9798086c5369c63a6161b65b3b924bc3614f5ac0c9d5307d12",
-      "risk_tag": "COMPETITION",
+      "url": "https://finnhub.io/api/news?id=cde346dba620f584f3358c02201248e08d08aa62b76fdbac9e215552d8f27fc3",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-06T08:30:49+00:00",
+      "title": "Stellantis CEO says automaker is stronger together as stock plummets amid $26 billion charge",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=1e4bd5fd0345e48e01b440f0de0b3af27fe12cf597a1432771fdc98d33f42110",
+      "risk_tag": "OTHER",
+      "impact_score": 0
+    },
+    {
+      "published_at": "2026-02-06T08:22:53+00:00",
+      "title": "Vauxhall owner Stellantis suffers \u00a319bn hit from botched EV shift",
+      "source": "finnhub",
+      "url": "https://finnhub.io/api/news?id=fab1d3c29600927910ecf707f371e01c65d604e7e005cc76b441a027c97cf01c",
+      "risk_tag": "OTHER",
       "impact_score": 0
     }
   ]

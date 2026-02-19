@@ -1,0 +1,18 @@
+{
+  "ticker": "UBER",
+  "generated_utc": "2026-02-19 17:14 UTC",
+  "inputs": {
+    "revenue_yoy_pct": 18.27959434262585,
+    "free_cash_flow": 9763000000.0,
+    "fcf_margin_pct": 18.768864025222523,
+    "news_shock_30d": -12.0,
+    "risk_counts_30d": {
+      "risk_insurance_neg_30d": 2,
+      "risk_regulatory_neg_30d": 1,
+      "risk_safety_neg_30d": 2,
+      "risk_total_neg_30d": 5
+    }
+  },
+  "alerts": [],
+  "alert_count": 0
+}

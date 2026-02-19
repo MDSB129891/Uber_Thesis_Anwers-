@@ -1,9 +1,9 @@
 # SUPER Investment Memo — GM
-*Generated: 2026-02-19 04:23 UTC*
+*Generated: 2026-02-19 15:58 UTC*
 
 ## 1) Your thesis (what you believe)
-**GM: enterprise value (company value including debt) expansion drives margin recovery**
-enterprise value (company value including debt) expansion drives margin recovery
+**GM: Thesis**
+enterprise value expansion drives margin recovery
 
 ## 2) What the model concluded (plain English)
 - **Rating:** **AVOID** (score **52/100**)
@@ -16,49 +16,100 @@ Think of this like a **car dashboard**:
 - The **news/risk** items try to spot headline landmines.
 - The **thesis test** checks whether the facts match the story you’re betting on.
 
+## Good vs Bad cheat-sheet (linked to this ticker)
+
+Think of each metric like a **warning light**. Below is the rule, then **GM today**.
+
+### Revenue growth compared to last year
+- **Rule band:** below 0%
+- **GM today:** **-1.29%** → **❌ BAD**
+
+### Free cash flow (cash left after paying bills + investment)
+- **Rule band:** positive
+- **GM today:** **$11.07B** → **✅ GOOD**
+
+### Free cash flow margin (cash per $100 of sales)
+- **Rule band:** 3% to 10%
+- **GM today:** **5.99%** → **🟡 WATCH**
+
+### Free cash flow yield (cash vs what you pay for the stock)
+- **Rule band:** above 5%
+- **GM today:** **14.19%** → **✅ GOOD**
+
+### Net debt (debt minus cash)
+- **GM today:** debt **$130.28B**, cash **$20.95B**, net debt **$109.33B** → **🟡 WATCH**
+
+### Net debt divided by free cash flow (years-to-pay debt)
+- **Rule band:** above 6x
+- **GM today:** **9.87x** → **❌ BAD**
 ## 4) Core numbers (sanity-check)
-- Revenue growth (compared to the same time last year): **-1.29%**  _(source: comps_snapshot → revenue_ttm_yoy_pct)_
-- Free cash flow (over the last twelve months): **$11.07B**  _(source: comps_snapshot → fcf_ttm)_
-- free cash flow (cash left after paying bills and investing in the business) margin: **5.99%**  _(source: comps_snapshot → fcf_margin_ttm_pct)_
-- free cash flow (cash left after paying bills and investing in the business) yield: **14.19%**  _(source: comps_snapshot → fcf_yield_pct / fcf_yield)_
+- Revenue growth compared to last year: **-1.29%**  _(source: comps_snapshot → revenue_ttm_yoy_pct)_
+- Free cash flow over the last 12 months: **$11.07B**  _(source: comps_snapshot → fcf_ttm)_
+- Free cash flow margin: **5.99%**  _(source: comps_snapshot → fcf_margin_ttm_pct)_
+- Free cash flow yield: **14.19%**  _(source: comps_snapshot → fcf_yield_pct / fcf_yield)_
 
 ## 5) Balance sheet snapshot (why debt matters)
 - Market cap: **$78.05B**
 - Cash: **$20.95B**
 - Debt: **$130.28B**
-- net debt (total debt minus cash): **$109.33B**  _(debt minus cash)_
-- net debt (total debt minus cash) / free cash flow (cash left after paying bills and investing in the business): **9.87x**  _(how many years of cash it takes to pay debt)_
+- Net debt: **$109.33B**  _(debt minus cash)_
+- Net debt divided by free cash flow: **9.87x**  _(how many years of cash it takes to pay debt)_
 
 ## 6) Bucket scores (what drove the rating)
-- **Cash strength** = **21** → Cash Level = does the business generate real cash and have liquidity?
-- **Price vs value** = **17** → Valuation = are you paying a reasonable price vs the cash the business produces?
-- **Growth** = **0** → Growth = are sales/cash expanding or shrinking?
-- **Business quality** = **6** → Quality = is the business healthy (margins, stability, consistency)?
-- **Debt / balance-sheet risk** = **8** → Balance Risk = debt + leverage + anything that can blow up fast.
+- **cash_level** = **21**
+- **valuation** = **17**
+- **growth** = **0**
+- **quality** = **6**
+- **balance_risk** = **8**
 
 ## 7) Red flags (things that can hurt stock fast)
-- the last twelve months revenue declining year over year (compared to last year)
-- the last twelve months free cash flow (cash left after paying bills and investing in the business) declining year over year (compared to last year)
-- net debt (total debt minus cash) high vs the last twelve months free cash flow (cash left after paying bills and investing in the business)
+- over the last 12 months revenue declining compared to last year
+- over the last 12 months free cash flow declining compared to last year
+- Net debt high vs over the last 12 months free cash flow
 - Frequent LABOR/INSURANCE/REGULATORY negatives (30d)
 
 ## 8) Thesis test (PASS/FAIL vs your claims)
-- **FAIL** — Revenue is still growing at a healthy pace  
-  Metric `latest_revenue_yoy_pct` >= 10.0 | Actual: **-1.29%**
-- **PASS** — Free cash flow is positive  
-  Metric `latest_free_cash_flow` > 0.0 | Actual: **$11.07B**
-- **FAIL** — Free cash flow margin is solid  
-  Metric `latest_fcf_margin_pct` >= 10.0 | Actual: **5.99%**
-- **PASS** — Valuation is not expensive versus cash (free cash flow (cash left after paying bills and investing in the business) yield is decent)  
-  Metric `fcf_yield_pct` >= 3.0 | Actual: **14.19%**
-- **FAIL** — Recent news shock is not severe (not a headline crisis)  
-  Metric `news_shock_30d` >= -15.0 | Actual: **-23.00**
-- **UNKNOWN** — Insurance risk is not spiking recently  
-  Metric `risk_insurance_neg_30d` <= 3.0 | Actual: **N/A**
-- **UNKNOWN** — Regulatory risk is not spiking recently  
-  Metric `risk_regulatory_neg_30d` <= 3.0 | Actual: **N/A**
-- **UNKNOWN** — Labor risk is not spiking recently  
-  Metric `risk_labor_neg_30d` <= 3.0 | Actual: **N/A**
+- **Claim** — `latest_revenue_yoy_pct` >= 10.0
+- **Claim** — `latest_free_cash_flow` > 0.0
+- **Claim** — `latest_fcf_margin_pct` >= 10.0
+- **Claim** — `fcf_yield_pct` >= 3.0
+- **Claim** — `news_shock_30d` >= -15.0
+- **Claim** — `risk_insurance_neg_30d` <= 3.0
+- **Claim** — `risk_regulatory_neg_30d` <= 3.0
+- **Claim** — `risk_labor_neg_30d` <= 3.0
+
+## Storytime walkthrough (explain it like I’m five)
+
+Okay. Imagine **GM** is a **gigantic toy factory**.
+
+You (the investor) are basically asking:
+> “Is this toy factory going to make **more money later**, or get hit with **expensive problems**?”
+
+### Step A — Sales (revenue)
+“Revenue growth compared to last year” means: **are more kids buying the toys this year, or fewer?**
+- Today it shows: **-1.29%**.
+
+If this number is negative, it means **fewer toys are being sold** than last year (usually not great).
+
+### Step B — Real cash (free cash flow)
+“Free cash flow” means: after paying for everything **and** investing in the business… is there money left in the piggy bank?
+- Today it shows: **$11.07B**.
+
+Positive = piggy bank fills. Negative = piggy bank leaks.
+
+### Step C — Efficiency (free cash flow margin)
+This is: out of every **$100** of toy sales, how many dollars become free cash?
+- Today it shows: **5.99%**.
+
+### Step D — Price vs cash (free cash flow yield)
+This is: if you buy the whole factory at today’s stock price, how much free cash do you get back each year?
+- Today it shows: **14.19%**.
+
+### Step E — Debt stress (net debt / free cash flow)
+This is: how many “years of piggy-bank money” it would take to pay off debt.
+- Today it shows: **9.87x**.
+
+Higher numbers here mean **less flexibility** if something goes wrong.
 
 ## 9) What to open (dopamine mode)
 - Dashboard: `outputs/decision_dashboard_GM.html`
