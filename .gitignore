@@ -18,3 +18,6 @@ __pycache__/
 outputs/
 export/
 data/processed/
+
+# local generated raw data
+data/raw/
