@@ -11,10 +11,6 @@ def _load_montecarlo(ticker: str):
     try:
         import json
         T = ticker.upper()
-        mc_r, mc_path = _load_montecarlo(T)
-        if not isinstance(mc_r, dict):
-            mc_r = {}
-
         canon = REPO_ROOT / "export" / f"CANON_{T}"
         fp = canon / f"{T}_MONTECARLO.json"
         if not fp.exists():
@@ -159,6 +155,46 @@ def main(ticker: str):
     canon.mkdir(parents=True, exist_ok=True)
 
     row = _load_snapshot_row(T)
+    # --- Hydrate HUD key numbers from outputs/receipts_{T}.json ---
+    try:
+        import json, math
+        from pathlib import Path as _P
+    
+        def _missing(x):
+            if x is None: return True
+            if isinstance(x, str) and x.strip().upper() == 'N/A': return True
+            if isinstance(x, float) and math.isnan(x): return True
+            return False
+    
+        # ensure row is a mutable dict
+        if not isinstance(row, dict) and hasattr(row, 'to_dict'):
+            row = row.to_dict()
+    
+        rp = _P('outputs') / f'receipts_{T}.json'
+        if rp.exists() and isinstance(row, dict):
+            payload = json.loads(rp.read_text(encoding='utf-8'))
+            actual = {}
+            for r in payload.get('receipts', []) or []:
+                if isinstance(r, dict) and r.get('metric') is not None:
+                    actual[str(r['metric'])] = r.get('actual')
+    
+            # FCF (TTM)
+            if _missing(row.get('free_cash_flow_ttm')):
+                v = actual.get('latest_free_cash_flow')
+                if not _missing(v):
+                    row['free_cash_flow_ttm'] = v
+    
+            # some HUD paths use fcf_ttm
+            if _missing(row.get('fcf_ttm')) and not _missing(row.get('free_cash_flow_ttm')):
+                row['fcf_ttm'] = row.get('free_cash_flow_ttm')
+    
+            # FCF yield pct
+            if _missing(row.get('fcf_yield_pct')):
+                v = actual.get('fcf_yield_pct')
+                if not _missing(v):
+                    row['fcf_yield_pct'] = v
+    except Exception:
+        pass
     # --- Risk summary (30d) from outputs/news_risk_summary_{T}.json ---
     risk_labor = risk_reg = risk_ins = risk_safe = risk_comp = risk_total = "N/A"
     risk_shock = "N/A"
@@ -178,7 +214,7 @@ def main(ticker: str):
             risk_safe  = _r.get("risk_safety_neg_30d", 0)
             risk_comp  = _r.get("risk_competition_neg_30d", 0)
             risk_total = _r.get("risk_total_30d", risk_labor + risk_reg + risk_ins + risk_safe + risk_comp)
-            risk_shock = _r.get("news_shock_30d", _r.get("news_shock", "N/A"))
+            risk_shock = _r.get("news_shock", "N/A")
             risk_generated = _r.get("generated_at", "N/A")
     except Exception:
         pass
@@ -189,7 +225,14 @@ def main(ticker: str):
 
     price = row.get("price", None)
     mcap  = row.get("market_cap", None)
-    fcf   = row.get("fcf", None)
+    # Prefer TTM FCF fields (snapshot/receipts), then fall back
+    fcf = row.get("free_cash_flow_ttm", None)
+    if _missing(fcf):
+        fcf = row.get("fcf_ttm", None)
+    if _missing(fcf):
+        fcf = row.get("free_cash_flow", None)
+    if _missing(fcf):
+        fcf = row.get("fcf", None)
     rev_yoy = row.get("revenue_ttm_yoy_pct", None)
     fcf_m = row.get("fcf_margin_ttm_pct", None)
     fcf_y = row.get("fcf_yield_pct", None)
@@ -244,54 +287,6 @@ def main(ticker: str):
     bear_price = _cone.get("bear_price", None)
     base_price = _cone.get("base_price", None)
     bull_price = _cone.get("bull_price", None)
-
-
-
-
-
-    # --- VISION: Monte Carlo DCF stats (safe defaults if missing) ---
-
-
-
-
-    mc_r, mc_path = _load_montecarlo(T)
-
-
-
-
-    if not isinstance(mc_r, dict):
-
-
-
-
-        mc_r = {}
-
-
-
-
-
-    mc_p10 = mc_r.get("p10") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_p50 = mc_r.get("p50") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_p90 = mc_r.get("p90") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_down20 = mc_r.get("prob_down_20pct") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_up20 = mc_r.get("prob_up_20pct") if isinstance(mc_r, dict) else None
-
 
 
 
@@ -389,16 +384,6 @@ def main(ticker: str):
     </div>
 
     <div class="card wide">
-      <div class="k">Monte Carlo DCF (per share)</div>
-      <div class="row"><div>P10</div><div><span class="pill">{_fmt_usd(mc_p10)}</span></div></div>
-      <div class="row"><div>P50</div><div><span class="pill">{_fmt_usd(mc_p50)}</span></div></div>
-      <div class="row"><div>P90</div><div><span class="pill">{_fmt_usd(mc_p90)}</span></div></div>
-      <div class="row" style="margin-top:8px;"><div>Prob down ≥20%</div><div>{_fmt_pct((mc_down20 or 0)*100.0)}</div></div>
-      <div class="row"><div>Prob up ≥20%</div><div>{_fmt_pct((mc_up20 or 0)*100.0)}</div></div>
-      <div class="small">Source: {mc_path or "N/A"} (triangular assumptions over DCF cone)</div>
-    </div>
-
-    <div class="card wide">
       <div class="k">DCF cone (per share)</div>
       <div class="row"><div>Bear</div><div><span class="pill">{_fmt_usd(bear_price)}</span> <span class="sub">({ups.get("bear","N/A")}%)</span></div></div>
       <div class="row"><div>Base</div><div><span class="pill">{_fmt_usd(base_price)}</span> <span class="sub">({ups.get("base","N/A")}%)</span></div></div>
@@ -419,7 +404,7 @@ def main(ticker: str):
     </div>
 
   <div class="small" style="margin-top:14px;">
-    Open next: <a href="UBER_TIMESTONE.html">Time Stone</a> · <a href="../outputs/receipts_{T}.html">Receipts</a> · <a href="decision_dashboard_{T}.html">Dashboard</a> · <a href="news_clickpack_{T}.html">News clickpack</a> · <a href="claim_evidence_{T}.html">Claim evidence</a> · <a href="../../outputs/receipts_{T}.html">Receipts</a>
+    Open next: <a href="decision_dashboard_{T}.html">Dashboard</a> · <a href="news_clickpack_{T}.html">News clickpack</a> · <a href="claim_evidence_{T}.html">Claim evidence</a>
   </div>
 </div>
 </body>
