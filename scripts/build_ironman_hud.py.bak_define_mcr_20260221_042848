@@ -11,10 +11,6 @@ def _load_montecarlo(ticker: str):
     try:
         import json
         T = ticker.upper()
-        mc_r, mc_path = _load_montecarlo(T)
-        if not isinstance(mc_r, dict):
-            mc_r = {}
-
         canon = REPO_ROOT / "export" / f"CANON_{T}"
         fp = canon / f"{T}_MONTECARLO.json"
         if not fp.exists():
@@ -250,22 +246,6 @@ def main(ticker: str):
 
 
     # --- VISION: Monte Carlo DCF stats (safe defaults if missing) ---
-
-
-
-
-    mc_r, mc_path = _load_montecarlo(T)
-
-
-
-
-    if not isinstance(mc_r, dict):
-
-
-
-
-        mc_r = {}
-
 
 
 

@@ -11,10 +11,6 @@ def _load_montecarlo(ticker: str):
     try:
         import json
         T = ticker.upper()
-        mc_r, mc_path = _load_montecarlo(T)
-        if not isinstance(mc_r, dict):
-            mc_r = {}
-
         canon = REPO_ROOT / "export" / f"CANON_{T}"
         fp = canon / f"{T}_MONTECARLO.json"
         if not fp.exists():
@@ -248,54 +244,6 @@ def main(ticker: str):
 
 
 
-
-    # --- VISION: Monte Carlo DCF stats (safe defaults if missing) ---
-
-
-
-
-    mc_r, mc_path = _load_montecarlo(T)
-
-
-
-
-    if not isinstance(mc_r, dict):
-
-
-
-
-        mc_r = {}
-
-
-
-
-
-    mc_p10 = mc_r.get("p10") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_p50 = mc_r.get("p50") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_p90 = mc_r.get("p90") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_down20 = mc_r.get("prob_down_20pct") if isinstance(mc_r, dict) else None
-
-
-
-
-    mc_up20 = mc_r.get("prob_up_20pct") if isinstance(mc_r, dict) else None
-
-
-
-
-
     html = f"""
 <!doctype html>
 <html>
@@ -386,16 +334,6 @@ def main(ticker: str):
       <div class="k">News shock (30d)</div>
       <div class="v">{_fmt_num(risk_shock)}{_pill("score")}</div>
       <div class="small">Lower (more negative) = worse headlines</div>
-    </div>
-
-    <div class="card wide">
-      <div class="k">Monte Carlo DCF (per share)</div>
-      <div class="row"><div>P10</div><div><span class="pill">{_fmt_usd(mc_p10)}</span></div></div>
-      <div class="row"><div>P50</div><div><span class="pill">{_fmt_usd(mc_p50)}</span></div></div>
-      <div class="row"><div>P90</div><div><span class="pill">{_fmt_usd(mc_p90)}</span></div></div>
-      <div class="row" style="margin-top:8px;"><div>Prob down ≥20%</div><div>{_fmt_pct((mc_down20 or 0)*100.0)}</div></div>
-      <div class="row"><div>Prob up ≥20%</div><div>{_fmt_pct((mc_up20 or 0)*100.0)}</div></div>
-      <div class="small">Source: {mc_path or "N/A"} (triangular assumptions over DCF cone)</div>
     </div>
 
     <div class="card wide">

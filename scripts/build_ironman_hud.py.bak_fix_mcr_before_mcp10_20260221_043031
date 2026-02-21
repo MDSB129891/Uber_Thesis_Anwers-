@@ -254,22 +254,6 @@ def main(ticker: str):
 
 
 
-    mc_r, mc_path = _load_montecarlo(T)
-
-
-
-
-    if not isinstance(mc_r, dict):
-
-
-
-
-        mc_r = {}
-
-
-
-
-
     mc_p10 = mc_r.get("p10") if isinstance(mc_r, dict) else None
 
 
