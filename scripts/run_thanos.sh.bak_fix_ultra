@@ -66,18 +66,16 @@ echo "- outputs/${TICKER}_Calculation_Methodology.md"
 echo "- export/${TICKER}_Calculation_Methodology.docx"
 echo ""
 
-# [JARVIS] muted duplicate open: open "outputs/decision_dashboard_${TICKER}.html" || true
-# [JARVIS] muted duplicate open: open "export/${TICKER}_Full_Investment_Memo.docx" || true
+open "outputs/decision_dashboard_${TICKER}.html" || true
+open "export/${TICKER}_Full_Investment_Memo.docx" || true
 
 
 echo "=== X) ULTRA memo (novice / explain-everything) ==="
-# Always pass a thesis file (ULTRA requires --thesis)
-ULTRA_THESIS="${THESIS_OVERRIDE:-theses/${TICKER}_thesis_base.json}"
-if [ ! -f "$ULTRA_THESIS" ]; then
-  ULTRA_THESIS="theses/${TICKER}_thesis_base.json"
+# ULTRA requires a thesis path. Prefer override if provided; otherwise use base thesis.
+ULTRA_THESIS="theses/${TICKER}_thesis_base.json"
+if [ -n "${THESIS_OVERRIDE:-}" ] && [ -f "${THESIS_OVERRIDE}" ]; then
+  ULTRA_THESIS="${THESIS_OVERRIDE}"
 fi
-python3 scripts/build_ultra_memo.py --ticker "$TICKER" --thesis "$ULTRA_THESIS" || true
-
 python3 scripts/build_ultra_memo.py --ticker "$TICKER" --thesis "$ULTRA_THESIS" || true
 
 

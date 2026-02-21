@@ -32,7 +32,7 @@
       "statement": "Stock is cheap enough to compensate for risks (higher required cash yield)",
       "metric": "fcf_yield_pct",
       "operator": ">=",
-      "threshold": 5.8,
+      "threshold": 5.7,
       "weight": 3
     },
     {

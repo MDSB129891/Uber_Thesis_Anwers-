@@ -119,26 +119,12 @@ def _derive_fcf_yield_pct(row):
     return None
 
 def _read_score_rating_veracity(ticker: str):
-    T = ticker.upper()
-
-    # 1) Authoritative model score/rating live in CANON core metrics
-    canon = Path(f"export/CANON_{T}/{T}_CORE_METRICS.json")
-    score = None
-    rating = None
-    bucket_scores = None
-    if canon.exists():
-        j = _load_json(canon, {})
-        m = j.get("metrics", {}) if isinstance(j, dict) else {}
-        if isinstance(m, dict):
-            score = m.get("score")
-            rating = m.get("rating")
-            bucket_scores = m.get("bucket_scores")
-
-    # 2) Veracity/confidence lives in outputs/veracity_{T}.json
-    v = _load_json(Path(f"outputs/veracity_{T}.json"), {})
-    veracity = v.get("confidence_score") or v.get("veracity") or v.get("confidence") or v.get("evidence_score")
-
-    return score, rating, veracity, bucket_scores
+    # best effort: use outputs/veracity_{T}.json if present
+    v = _load_json(Path(f"outputs/veracity_{ticker}.json"), {})
+    score = v.get("score") or v.get("model_score") or v.get("overall_score")
+    rating = v.get("rating") or v.get("model_rating") or v.get("verdict")
+    veracity = v.get("veracity") or v.get("confidence") or v.get("evidence_score")
+    return score, rating, veracity
 
 def _load_thesis(thesis_path: Path):
     t = _load_json(thesis_path, {})
@@ -159,10 +145,10 @@ def _claim_actuals_map(row):
         "fcf_margin_ttm_pct": row.get("fcf_margin_ttm_pct"),
         "fcf_yield_pct": _derive_fcf_yield_pct(row),
         # news/risk metrics may exist elsewhere; keep as None if we can't find
-        "news_shock_30d": row.get("news_shock_30d"),
-        "risk_insurance_neg_30d": row.get("risk_insurance_neg_30d"),
-        "risk_regulatory_neg_30d": row.get("risk_regulatory_neg_30d"),
-        "risk_labor_neg_30d": row.get("risk_labor_neg_30d"),
+        "news_shock_30d": rs.get("news_shock_30d"),
+        "risk_insurance_neg_30d": rs.get("risk_insurance_neg_30d"),
+        "risk_regulatory_neg_30d": rs.get("risk_regulatory_neg_30d"),
+        "risk_labor_neg_30d": rs.get("risk_labor_neg_30d"),
     }
 
 def _compare(op: str, actual, thresh):
@@ -212,22 +198,7 @@ def main(ticker: str, thesis_path: Path):
     T = ticker.upper()
     row = _load_row(T)
 
-    # --- HULKBUSTER: merge CANON news/risk (authoritative) ---
-    canon_risk = _load_canon_risk(T)
-    if canon_risk:
-        for k in ("news_shock_30d","risk_labor_neg_30d","risk_regulatory_neg_30d","risk_insurance_neg_30d"):
-            if row.get(k) is None:
-                row[k] = canon_risk.get(k)
-
-    # --- HULKBUSTER: normalize fcf_yield_pct (0.06 -> 6.0) ---
-    try:
-        v = row.get("fcf_yield_pct")
-        if isinstance(v, (int,float)) and 0 < v < 1:
-            row["fcf_yield_pct"] = v * 100.0
-    except Exception:
-        pass
-
-    score, rating, veracity, bucket_scores = _read_score_rating_veracity(T)
+    score, rating, veracity = _read_score_rating_veracity(T)
     headline, desc, claims = _load_thesis(thesis_path)
 
     # Core metrics from comps_snapshot

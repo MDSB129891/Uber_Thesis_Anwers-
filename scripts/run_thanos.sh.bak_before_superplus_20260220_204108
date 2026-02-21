@@ -66,8 +66,8 @@ echo "- outputs/${TICKER}_Calculation_Methodology.md"
 echo "- export/${TICKER}_Calculation_Methodology.docx"
 echo ""
 
-# [JARVIS] muted duplicate open: open "outputs/decision_dashboard_${TICKER}.html" || true
-# [JARVIS] muted duplicate open: open "export/${TICKER}_Full_Investment_Memo.docx" || true
+open "outputs/decision_dashboard_${TICKER}.html" || true
+open "export/${TICKER}_Full_Investment_Memo.docx" || true
 
 
 echo "=== X) ULTRA memo (novice / explain-everything) ==="

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TICKER="${1:-}"
+if [ -z "$TICKER" ]; then
+  echo "usage: ./JARVIS TICKER"
+  exit 1
+fi
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+T="$(printf "%s" "$TICKER" | tr '[:lower:]' '[:upper:]')"
+
+dash="$ROOT/outputs/decision_dashboard_${T}.html"
+claims="$ROOT/outputs/claim_evidence_${T}.html"
+news="$ROOT/outputs/news_clickpack_${T}.html"
+pdf="$ROOT/export/${T}_Full_Investment_Memo.pdf"
+ultra="$ROOT/export/${T}_ULTRA_Memo.docx"
+hud="$ROOT/export/CANON_${T}/${T}_IRONMAN_HUD.html"
+
+open_if() {
+  local f="$1"
+  if [ -f "$f" ]; then
+    echo "🚀 opening: $f"
+    open "$f" || true
+  else
+    echo "⚠️ missing: $f"
+  fi
+}
+
+# Priority order (minimal, high signal)
+open_if "$dash"
+open_if "$hud"
+open_if "$claims"
+open_if "$news"
+open_if "$pdf"
+
+# Optional: ULTRA docx last
+open_if "$ultra"
+
+# Prefer SUPERPLUS PDF if present
+T_UPPER=$(echo "$TICKER" | tr a-z A-Z)
+SUPERPDF="export/${T_UPPER}_SUPER_PLUS_Memo.pdf"
+[ -f "$SUPERPDF" ] && open "$SUPERPDF" >/dev/null 2>&1 || true

@@ -1,71 +1,73 @@
 {
-  "name": "UBER: Thesis",
   "ticker": "UBER",
-  "description": "UBER should generate cash while valuation stays reasonable; risks aren't escalating.",
+  "name": "UBER: Custom thesis",
+  "headline": "UBER: If drivers become employees, stock will drop significantly",
+  "description": "If drivers become employees, stock will drop significantly",
+  "generated_utc": "2026-02-21 03:29 UTC",
   "claims": [
     {
       "id": "c1",
-      "statement": "Revenue is still growing at a healthy pace",
       "metric": "latest_revenue_yoy_pct",
       "operator": ">=",
-      "threshold": 10.0,
-      "weight": 2
+      "threshold": 8.0,
+      "rationale": "Growth should stay positive in the base case."
     },
     {
       "id": "c2",
-      "statement": "Free cash flow is positive",
       "metric": "latest_free_cash_flow",
       "operator": ">",
       "threshold": 0.0,
-      "weight": 3
+      "rationale": "Business should produce positive free cash flow."
     },
     {
       "id": "c3",
-      "statement": "Free cash flow margin is solid",
       "metric": "latest_fcf_margin_pct",
       "operator": ">=",
-      "threshold": 10.0,
-      "weight": 2
+      "threshold": 8.0,
+      "rationale": "If labor costs rise, margins get hit first \u2014 require cushion."
     },
     {
       "id": "c4",
-      "statement": "Valuation is not expensive versus cash (FCF yield is decent)",
       "metric": "fcf_yield_pct",
       "operator": ">=",
-      "threshold": 3.0,
-      "weight": 2
+      "threshold": 4.5,
+      "rationale": "If risk rises, valuation should compensate via cash yield."
     },
     {
       "id": "c5",
-      "statement": "Recent news shock is not severe (not a headline crisis)",
       "metric": "news_shock_30d",
       "operator": ">=",
-      "threshold": -15.0,
-      "weight": 1
+      "threshold": -20.0,
+      "rationale": "Avoid severe negative headline shock over the last 30 days."
     },
     {
       "id": "c6",
-      "statement": "Insurance risk is not spiking recently",
-      "metric": "risk_insurance_neg_30d",
+      "metric": "risk_regulatory_neg_30d",
       "operator": "<=",
-      "threshold": 3.0,
-      "weight": 1
+      "threshold": 2,
+      "rationale": "Worker classification risk should stay calm (regulatory headlines)."
     },
     {
       "id": "c7",
-      "statement": "Regulatory risk is not spiking recently",
-      "metric": "risk_regulatory_neg_30d",
+      "metric": "risk_insurance_neg_30d",
       "operator": "<=",
-      "threshold": 3.0,
-      "weight": 1
+      "threshold": 3,
+      "rationale": "Insurance-related negative headlines should not spike in the last 30 days."
     },
     {
       "id": "c8",
-      "statement": "Labor risk is not spiking recently",
       "metric": "risk_labor_neg_30d",
       "operator": "<=",
-      "threshold": 3.0,
-      "weight": 1
+      "threshold": 2,
+      "rationale": "Worker classification risk should stay calm (labor headlines)."
+    },
+    {
+      "id": "c9",
+      "metric": "bear_price",
+      "operator": "<=",
+      "threshold": null,
+      "rationale": "Bear case price exists in the DCF cone; use HUD for magnitude.",
+      "note": "Informational claim: set a threshold if you want an automatic PASS/FAIL."
     }
   ]
 }

@@ -333,7 +333,7 @@ def main(ticker: str):
     </div>
 
   <div class="small" style="margin-top:14px;">
-    Open next: <a href="../../outputs/decision_dashboard_{T}.html">Dashboard</a> · <a href="../../outputs/news_clickpack_{T}.html">News clickpack</a> · <a href="../../outputs/claim_evidence_{T}.html">Claim evidence</a>
+    Open next: <a href="decision_dashboard_{T}.html">Dashboard</a> · <a href="news_clickpack_{T}.html">News clickpack</a> · <a href="claim_evidence_{T}.html">Claim evidence</a>
   </div>
 </div>
 </body>
